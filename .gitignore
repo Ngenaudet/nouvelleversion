@@ -1,3 +1,21 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dépendances et fichiers générés
+node_modules/
+dist/
+coverage/
+
+# Configuration locale et secrets
+.env
+.env.*
+!.env.example
+
+# Journaux
+*.log
+
+# Livrables générés localement
 artifact.html
 nouvelle-version-site.zip
 nouvelleversion.bundle
