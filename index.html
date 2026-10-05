@@ -214,7 +214,7 @@ body.menu-open .burger span:last-child{transform:translateY(-3px) rotate(-45deg)
 .method-intro{margin:0;color:var(--muted);font-size:15px;max-width:46ch}
 .steps{list-style:none;margin:0;padding:0 0 40px;display:grid;gap:clamp(60px,10vh,120px)}
 /* Cartes empilées : chaque étape reste collée sous la précédente, décalée de 26px */
-.step{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:28px;align-items:center;position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px + var(--i,0) * 26px);background:var(--paper);padding-block:14px;border-radius:var(--r-lg)}
+.step{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:28px;align-items:center;position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px + var(--i,0) * 26px);background:var(--paper);padding-block:14px;border-radius:var(--r-lg)}
 .step:nth-child(1){--i:0}.step:nth-child(2){--i:1}.step:nth-child(3){--i:2}
 .step-card{box-shadow:0 -18px 40px -30px rgba(15,31,143,.45);will-change:transform}
 .step-num{font-family:var(--f-display);font-weight:600;font-size:clamp(120px,15vw,230px);line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px var(--blue-line);
@@ -355,7 +355,7 @@ textarea.input{min-height:140px;resize:vertical}
   .step{grid-template-columns:1fr;gap:0}
   .step-num{font-size:110px;margin-bottom:-14px;position:relative;z-index:0}
   .step-card{position:relative}
-  .step{top:calc(env(safe-area-inset-top,0px) + 76px + var(--i,0) * 18px)}
+  .step{top:calc(env(safe-area-inset-top,0px) + 16px + var(--i,0) * 18px)}
   .member{grid-template-columns:1fr}
   .member-media{max-width:360px;margin-bottom:24px}
 }
