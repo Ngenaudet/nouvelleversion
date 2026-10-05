@@ -950,13 +950,13 @@ textarea.input{min-height:140px;resize:vertical}
         .from($("h3",card),{y:20,opacity:0,duration:.6},"-=.6")
         .from(subs,{y:50,opacity:0,rotate:i%2?-2:2,stagger:.12,duration:.8,ease:"back.out(1.4)"},"-=.4");
     });
-    /* Empilement : l'étape recouverte recule et s'assombrit pendant que la suivante arrive */
+    /* Empilement : l'étape recouverte recule pendant que la suivante arrive */
     var stepEls = $$(".step");
     stepEls.forEach(function(step,i){
       var next = stepEls[i+1]; if(!next) return;
       var stickTop = parseFloat(getComputedStyle(next).top) || 100;
       var st = {trigger:next,start:"top bottom",end:"top " + stickTop + "px",scrub:true};
-      gsap.to($(".step-card",step),{scale:.93,filter:"brightness(.93)",transformOrigin:"50% 0%",ease:"none",scrollTrigger:st});
+      gsap.to($(".step-card",step),{scale:.93,transformOrigin:"50% 0%",ease:"none",scrollTrigger:st});
       gsap.to($(".step-num",step),{opacity:.15,scale:.85,transformOrigin:"0% 50%",ease:"none",scrollTrigger:st});
     });
     /* Fusée */
