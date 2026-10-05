@@ -9,7 +9,7 @@ Site de l’agence **Nouvelle Version**, réalisé à partir de la maquette cré
 
 ## État du projet
 
-La page d’accueil est intégrée (`index.html`) :
+La page d’accueil est intégrée (`index.html`, styles dans `css/style.css`) :
 
 - Hero, offres (cartes en verre), méthode en cartes sticky, CTA, à propos, équipe, contact, FAQ, footer.
 - SEO : balises meta, Open Graph, données structurées JSON-LD (ProfessionalService + FAQPage).
