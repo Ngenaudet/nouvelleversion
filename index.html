@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nouvelle Version</title>
+<meta name="description" content="Nouvelle Version, collectif de 3 freelances à Lyon : création, refonte et sites WordPress sur-mesure. Rédaction SEO & GEO, webdesign UX/UI et développement. Audit gratuit sous 48h.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.nouvelle-version.fr/">
+<meta name="theme-color" content="#2D4EF5">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Nouvelle Version">
+<meta property="og:title" content="Nouvelle Version · Agence WordPress & contenus marketing à Lyon">
+<meta property="og:description" content="Transformez votre site en levier de performance : one page, refonte ou site sur-mesure WordPress. Audit gratuit sous 48h.">
+<meta property="og:url" content="https://www.nouvelle-version.fr/">
+<meta property="og:image" content="https://www.nouvelle-version.fr/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.nouvelle-version.fr/#org",
+      "name": "Nouvelle Version",
+      "description": "Collectif de trois freelances : création et refonte de sites WordPress, rédaction SEO & GEO, webdesign UX/UI et développement sur-mesure.",
+      "url": "https://www.nouvelle-version.fr/",
+      "telephone": "+33689999999",
+      "email": "nouvelle-version@mail.com",
+      "areaServed": "FR",
+      "address": { "@type": "PostalAddress", "addressLocality": "Lyon", "addressCountry": "FR" },
+      "sameAs": ["https://www.linkedin.com/"],
+      "employee": [
+        { "@type": "Person", "name": "Violaine Amiot", "jobTitle": "Rédactrice web & SEO" },
+        { "@type": "Person", "name": "David Marin", "jobTitle": "Webdesigner UX/UI" },
+        { "@type": "Person", "name": "Nicolas Genaudet", "jobTitle": "Développeur WordPress" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Nos solutions WordPress",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nouvelle page : site one page" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nouvelle version : refonte de site" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nouvelle dimension : site sur-mesure" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Quels services proposez-vous exactement ?", "acceptedAnswer": { "@type": "Answer", "text": "Création de sites one page, refonte de sites WordPress et projets sur-mesure : stratégie, rédaction SEO, webdesign UX/UI et développement WordPress, avec un interlocuteur dédié par expertise." } },
+        { "@type": "Question", "name": "Comment puis-je demander un devis personnalisé ?", "acceptedAnswer": { "@type": "Answer", "text": "Remplissez le formulaire de contact ou réservez un créneau de 30 minutes. Vous recevez un premier audit gratuit sous 48h, puis un devis détaillé." } },
+        { "@type": "Question", "name": "Quels délais faut-il prévoir pour la création d'un site ?", "acceptedAnswer": { "@type": "Answer", "text": "En moyenne 2 à 3 semaines pour une page unique, 4 à 8 semaines pour une refonte, davantage pour un projet sur-mesure. Le planning est fixé dès la réunion de cadrage." } },
+        { "@type": "Question", "name": "Proposez-vous des options de maintenance après la livraison ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui : mises à jour WordPress, sauvegardes, sécurité, petites évolutions et optimisation SEO continue." } },
+        { "@type": "Question", "name": "Comment se déroule le processus de collaboration avec votre équipe ?", "acceptedAnswer": { "@type": "Answer", "text": "Réunion de cadrage, atelier de co-construction, maquettes validées ensemble, développement, puis prise en main de votre back-office." } },
+        { "@type": "Question", "name": "Quels types de sites web pouvez-vous développer ?", "acceptedAnswer": { "@type": "Answer", "text": "Sites vitrines, one page, e-commerce WooCommerce, blogs et sites de contenu, avec parcours client et automatisations sur-mesure." } }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Layout: hero bleu plein cadre → cartes offres à cheval → sections blanches rythmées par des bandeaux marquee inclinés → footer bleu */
+:root{
+  --blue:#2D4EF5; --blue-deep:#1C38D8; --blue-ink:#0F1F8F; --blue-soft:#EEF1FF; --blue-line:#CCD5FF;
+  --orange:#FF7A1F; --orange-deep:#F05A06; --orange-soft:#FFE6D4;
+  --ink:#11131C; --muted:#5B6178; --line:#E3E7F5; --paper:#FFFFFF; --mist:#F5F7FF;
+  --f-display:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r-lg:22px; --r-md:14px; --r-pill:999px;
+  --wrap:1200px; --gutter:clamp(16px,4vw,40px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.wi,.ch{display:inline-block;will-change:transform}
+
+/* ---------- Typo ---------- */
+.display{font-family:var(--f-display);font-weight:700;line-height:.95;letter-spacing:-.01em;text-wrap:balance;margin:0}
+.eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill);background:var(--blue-soft);color:var(--blue);margin:0 0 18px}
+.eyebrow--glass{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22)}
+
+/* ---------- Boutons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:var(--r-pill);font-weight:700;font-size:14px;line-height:1.2;border:0;transition:background .25s,color .25s,box-shadow .25s;position:relative;will-change:transform}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 10px 30px -10px rgba(240,90,6,.7)}
+.btn-orange:hover{background:var(--orange-deep)}
+.btn-white{background:#fff;color:var(--blue)}
+.btn-white:hover{background:var(--blue-soft)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-deep)}
+.btn svg{width:16px;height:16px;flex:none}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-pill);font-size:13px;font-weight:600;background:#fff;color:var(--blue);white-space:nowrap}
+.pill svg{width:14px;height:14px}
+.pill--glass{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25)}
+
+/* ---------- Progress + curseur ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--orange);transform-origin:0 50%;transform:scaleX(0);z-index:100}
+.cursor{position:fixed;top:0;left:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--orange);pointer-events:none;z-index:101;mix-blend-mode:normal;opacity:0;transition:width .25s,height .25s,margin .25s,background .25s}
+.cursor.is-hover{width:46px;height:46px;margin:-23px 0 0 -23px;background:rgba(255,122,31,.25);border:1px solid var(--orange)}
+@media (pointer:coarse){.cursor{display:none}}
+
+/* ---------- Header ---------- */
+.site-header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;pointer-events:none}
+.hdr{display:flex;align-items:center;gap:18px;padding:14px var(--gutter) 14px 0;max-width:1440px;margin-inline:auto;pointer-events:auto;transition:background .35s,box-shadow .35s,padding .35s;border-radius:0 0 var(--r-lg) 0}
+.site-header.is-scrolled .hdr{background:rgba(29,56,216,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px -20px rgba(15,31,143,.8);padding-block:8px}
+.logo{display:flex;align-items:center;gap:6px;background:var(--orange);color:#fff;padding:16px 24px 16px var(--gutter);border-radius:0 0 var(--r-lg) 0;margin-top:-14px;align-self:flex-start;transition:margin .35s,padding .35s}
+.site-header.is-scrolled .logo{margin-top:-8px;padding-block:10px}
+.logo-n{font-family:var(--f-display);font-weight:800;font-size:46px;line-height:.8;letter-spacing:-.04em}
+.logo-txt{font-family:var(--f-display);font-weight:800;font-size:19px;line-height:.85;text-transform:uppercase}
+.nav-pill{position:relative;display:flex;gap:2px;padding:5px;border-radius:var(--r-pill);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22)}
+.nav-pill a{position:relative;z-index:1;padding:8px 16px;border-radius:var(--r-pill);font-size:13px;font-weight:600;color:rgba(255,255,255,.75);transition:color .3s}
+.nav-pill a.is-active,.nav-pill a:hover{color:#fff}
+.nav-ind{position:absolute;top:5px;bottom:5px;left:5px;width:0;border-radius:var(--r-pill);background:rgba(255,255,255,.2)}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.14);color:#fff;place-items:center}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;border-radius:2px;transition:transform .3s}
+.mobile-menu{position:fixed;inset:0;z-index:49;background:var(--blue-deep);color:#fff;padding:120px var(--gutter) 40px;display:flex;flex-direction:column;gap:14px;clip-path:circle(0% at calc(100% - 40px) 40px);visibility:hidden}
+.mobile-menu a.mm-link{font-family:var(--f-display);font-weight:700;font-size:46px;line-height:1}
+.mobile-menu .mm-contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+@media (max-width:1080px){.hdr-right .pill{display:none}}
+@media (max-width:820px){.nav-pill,.hdr-right{display:none}.burger{display:grid}}
+body.menu-open .burger span:first-child{transform:translateY(3px) rotate(45deg)}
+body.menu-open .burger span:last-child{transform:translateY(-3px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;color:#fff;padding-top:150px;overflow:hidden;
+  background:linear-gradient(180deg,var(--blue) 0%,#3456FF 55%,#4E6BFF 70%,#fff 70.1%)}
+.hero-bg{position:absolute;inset:0 0 30% 0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55}
+.blob--1{width:520px;height:520px;background:#5E7CFF;top:-160px;right:-120px}
+.blob--2{width:380px;height:380px;background:#1B2FC9;top:220px;left:-160px}
+.blob--3{width:260px;height:260px;background:var(--orange);opacity:.22;top:120px;left:48%}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg,#000 0%,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 85%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:end}
+.hero-main{min-width:0}
+.hero-title{font-size:clamp(48px,7.4vw,104px);max-width:12ch}
+.squiggle{display:block;width:110px;height:22px;margin:16px 0 34px;color:var(--orange)}
+.stats{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,60px)}
+.stat strong{display:block;font-family:var(--f-display);font-weight:700;font-size:clamp(40px,5vw,58px);line-height:1;font-variant-numeric:tabular-nums}
+.stat > span{display:block;font-size:13px;line-height:1.4;color:rgba(255,255,255,.72);max-width:16ch;margin-top:6px}
+.hero-aside{min-width:0;display:flex;flex-direction:column;gap:18px;padding-bottom:6px}
+.hero-follow{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+.hero-follow .in{width:30px;height:30px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center}
+.hero-follow .in svg{width:14px;height:14px}
+.collab{display:flex;align-items:center;gap:16px}
+.avatars{display:flex}
+.avatar{width:54px;height:54px;border-radius:50%;border:3px solid #fff;margin-left:-14px;object-fit:cover;background:var(--blue-soft);box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
+.avatar:first-child{margin-left:0}
+.collab-title{font-family:var(--f-display);font-weight:700;font-size:28px;line-height:1;margin:0}
+.collab-sub{font-size:13px;color:rgba(255,255,255,.75);margin:2px 0 0}
+.hero-lead{margin:0;font-size:15px;color:rgba(255,255,255,.85);max-width:42ch}
+
+/* ---------- Offres ---------- */
+.offers{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:150px;padding-bottom:100px;perspective:1400px}
+.offer{position:relative;display:flex;flex-direction:column;border-radius:var(--r-lg);padding:0 26px 28px;color:#fff;transform-style:preserve-3d;box-shadow:0 30px 60px -30px rgba(15,31,143,.55)}
+.offer--blue{background:linear-gradient(170deg,#3B5BFF 0%,var(--blue-deep) 100%);border:1px solid rgba(255,255,255,.22);--g1:#9FB6FF;--g2:#2645F0;--g3:#0C1C8A;--glow:#5C7CFF}
+.offer--orange{background:linear-gradient(170deg,#FF8F3D 0%,var(--orange-deep) 100%);--g1:#FFD2A8;--g2:#F2650F;--g3:#8F3200;--glow:#FFB070}
+.offer--dark{background:linear-gradient(170deg,#262833 0%,#0E0F14 100%);--g1:#F2F2F5;--g2:#6A6E80;--g3:#1A1B22;--glow:#9AA0B8}
+.offer-visual{position:relative;height:230px;margin:-125px -10px 14px;display:grid;place-items:end center;pointer-events:none}
+.glyph-wrap{position:relative;display:grid;place-items:end center;height:100%;width:100%}
+.glow{position:absolute;bottom:-6px;left:50%;width:70%;height:40px;transform:translateX(-50%);background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(6px);opacity:.9}
+.glyph{position:relative;display:block;height:230px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35));will-change:transform}
+.offer-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.offer-num{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:24px}
+.offer-kicker{margin:0;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.75}
+.offer h3{margin:0;font-family:var(--f-display);font-weight:700;font-size:32px;line-height:1}
+.offer-desc{margin:0 0 18px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.82)}
+.offer-list{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:7px;font-size:13px;font-weight:600}
+.offer-list li{display:flex;gap:10px;align-items:baseline}
+.offer-list li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:#fff;transform:translateY(-2px)}
+.offer-list em{font-style:normal;font-weight:500;opacity:.7}
+.offer .btn{margin-top:auto;width:100%}
+.offer--orange .btn-white{color:var(--orange-deep)}
+.offer--dark .btn-white{color:var(--ink)}
+
+/* ---------- Marquee ---------- */
+.marquee-band{overflow:hidden;padding-block:36px;position:relative}
+.marquee{background:var(--blue);color:#fff;padding-block:18px;transform:rotate(-2deg);width:110%;margin-left:-5%;box-shadow:0 20px 40px -20px rgba(29,56,216,.6)}
+.marquee--alt{transform:rotate(1.5deg)}
+.marquee-track{display:flex;width:max-content}
+.marquee ul{list-style:none;margin:0;padding:0 0 0 0;display:flex;align-items:center}
+.marquee li{display:flex;align-items:center;font-family:var(--f-body);font-weight:600;font-size:clamp(18px,2.2vw,26px);white-space:nowrap}
+.marquee li::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--orange);margin-inline:28px}
+
+/* ---------- Méthode ---------- */
+.section{padding-block:clamp(70px,9vw,120px)}
+.method-head{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
+.method-head > *{min-width:0}
+.h2{font-size:clamp(44px,6vw,80px);color:var(--ink)}
+.method-intro{margin:0;color:var(--muted);font-size:15px;max-width:46ch}
+.steps{list-style:none;margin:0;padding:0 0 40px;display:grid;gap:clamp(60px,10vh,120px)}
+/* Cartes empilées : chaque étape reste collée sous la précédente, décalée de 26px */
+.step{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:28px;align-items:center;position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px + var(--i,0) * 26px);background:var(--paper);padding-block:14px;border-radius:var(--r-lg)}
+.step:nth-child(1){--i:0}.step:nth-child(2){--i:1}.step:nth-child(3){--i:2}
+.step-card{box-shadow:0 -18px 40px -30px rgba(15,31,143,.45);will-change:transform}
+.step-num{font-family:var(--f-display);font-weight:600;font-size:clamp(120px,15vw,230px);line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px var(--blue-line);
+  background:linear-gradient(90deg,var(--blue) 0 50%,transparent 50% 100%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;user-select:none}
+.step-card{background:var(--blue-soft);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px);min-width:0}
+.step-card h3{font-family:var(--f-display);font-weight:700;font-size:clamp(24px,2.6vw,32px);line-height:1.05;margin:0 0 20px}
+.step-sub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sub{background:#fff;border-radius:var(--r-md);padding:20px;display:flex;flex-direction:column;gap:12px;min-height:170px;box-shadow:0 10px 30px -24px rgba(15,31,143,.6);transition:transform .35s,box-shadow .35s}
+.sub:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(15,31,143,.6)}
+.sub h4{margin:0;font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.05;color:var(--blue)}
+.sub p{margin:0;font-size:13px;color:var(--muted)}
+.more{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink);align-self:flex-start}
+.more svg{width:16px;height:16px;transition:transform .3s}
+.more:hover svg{transform:rotate(90deg)}
+.sub--launch{background:linear-gradient(140deg,#4766FF,var(--blue-deep));color:#fff;position:relative;overflow:hidden}
+.sub--launch h4{color:#fff}
+.sub--launch .btn{align-self:flex-start;margin-top:auto;position:relative;z-index:1}
+.rocket{position:absolute;right:12px;bottom:10px;width:110px;height:110px;color:#fff;opacity:.95}
+.star{position:absolute;color:#fff;font-size:12px;line-height:1}
+
+/* ---------- CTA ---------- */
+.cta-wrap{padding-bottom:clamp(70px,9vw,120px)}
+.cta{position:relative;overflow:hidden;border-radius:28px;background:radial-gradient(120% 140% at 50% 0%,#FF9A4D 0%,var(--orange) 45%,var(--orange-deep) 100%);color:#fff;text-align:center;padding:clamp(48px,7vw,80px) var(--gutter);box-shadow:0 40px 80px -40px rgba(240,90,6,.7)}
+.cta h2{font-size:clamp(38px,5.4vw,68px);margin:0 auto 18px;max-width:18ch}
+.cta p{margin:0 auto 28px;max-width:52ch;font-size:15px;color:rgba(255,255,255,.9)}
+.cta strong{color:#fff}
+.cta .ring{position:absolute;border:1px solid rgba(255,255,255,.25);border-radius:50%;pointer-events:none}
+.cta .ring--1{width:420px;height:420px;left:-140px;top:-180px}
+.cta .ring--2{width:300px;height:300px;right:-90px;bottom:-140px}
+
+/* ---------- À propos ---------- */
+.about{background:linear-gradient(180deg,var(--blue) 0%,#4A68FF 62%,#fff 100%);color:#fff;text-align:center;padding-block:clamp(80px,10vw,140px) clamp(120px,14vw,200px)}
+.about-quote{font-family:var(--f-body);font-weight:600;font-size:clamp(24px,3.4vw,42px);line-height:1.22;max-width:30ch;margin:0 auto;text-wrap:balance;letter-spacing:-.01em}
+
+/* ---------- Équipe ---------- */
+.team{display:grid;gap:clamp(60px,8vw,100px);margin-top:-40px}
+.member{display:grid;grid-template-columns:minmax(0,260px) minmax(0,330px) minmax(0,1fr);gap:clamp(24px,3vw,48px);align-items:center}
+.member-q{display:flex;gap:14px;align-items:flex-start;align-self:start;padding-top:40px}
+.q-ico{flex:none;width:36px;height:36px;border-radius:50%;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;border:1px solid var(--blue-line)}
+.q-ico svg{width:18px;height:18px}
+.member-q p{margin:0;font-weight:700;font-size:17px;line-height:1.35}
+.member-media{position:relative;padding:40px 0 0 40px}
+.media-panel{position:absolute;left:0;top:70px;width:70%;height:calc(100% - 50px);background:var(--blue);border-radius:var(--r-lg);display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:16px}
+.soc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;display:grid;place-items:center;transition:background .3s,color .3s}
+.soc:hover{background:#fff;color:var(--blue)}
+.soc svg{width:15px;height:15px}
+.portrait{position:relative;margin-left:auto;width:78%;aspect-ratio:4/5;max-width:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,31,143,.6)}
+.portrait{background:var(--blue-soft)}
+.portrait-in{position:absolute;left:0;top:-12%;width:100%;height:124%;max-width:none;object-fit:cover}
+.member-media .squiggle{position:absolute;left:30px;top:96px;margin:0;z-index:2;width:70px}
+.member-body{min-width:0}
+.member-body h3{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,3.6vw,46px);line-height:1;margin:0 0 4px}
+.role{margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep)}
+.member-body > p.bio{margin:0 0 20px;font-size:14px;color:var(--muted);max-width:56ch}
+.skills{background:var(--blue-soft);border-radius:var(--r-md);padding:16px 18px}
+.skills h4{margin:0 0 10px;font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--blue)}
+.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.skills li{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:var(--r-pill);padding:6px 12px;font-size:12px;font-weight:700}
+.skills li svg{width:12px;height:12px;color:var(--blue)}
+
+/* ---------- Contact ---------- */
+.contact{background:linear-gradient(180deg,#fff 0%,var(--mist) 18%,#E8EDFF 100%);text-align:center}
+.contact-lead{margin:18px auto 44px;max-width:56ch;color:var(--muted);font-size:15px}
+.form{max-width:780px;margin-inline:auto;text-align:left;background:#fff;border-radius:var(--r-lg);padding:clamp(22px,4vw,40px);box-shadow:0 40px 80px -50px rgba(15,31,143,.55);display:grid;gap:24px;border:1px solid var(--line)}
+.field-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;font-size:13px;font-weight:700}
+.field-head span{font-weight:500;color:var(--muted);font-size:12px}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.input{width:100%;border:1px solid var(--line);background:var(--mist);border-radius:10px;padding:13px 14px;font:inherit;font-size:14px;color:var(--ink);transition:border-color .25s,background .25s,box-shadow .25s}
+.input:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(45,78,245,.12)}
+textarea.input{min-height:140px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:10px;border:0;margin:0;padding:0}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip label{display:inline-flex;align-items:center;gap:8px;padding:7px 16px 7px 7px;border-radius:var(--r-pill);font-size:13px;font-weight:700;color:#fff;cursor:pointer;transition:transform .2s,box-shadow .25s,opacity .25s;opacity:.78}
+.chip label b{width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:12px}
+.chip--1 label{background:var(--blue)}.chip--1 b{color:var(--blue)}
+.chip--2 label{background:var(--orange)}.chip--2 b{color:var(--orange-deep)}
+.chip--3 label{background:var(--ink)}.chip--3 b{color:var(--ink)}
+.chip input:checked + label{opacity:1;box-shadow:0 0 0 3px #fff,0 0 0 5px currentColor;transform:translateY(-2px)}
+.chip--1 input:checked + label{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--blue)}
+.chip--2 input:checked + label{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--orange)}
+.chip--3 input:checked + label{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
+.chip input:focus-visible + label{outline:3px solid var(--orange);outline-offset:4px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.consent input{margin-top:3px;width:16px;height:16px;accent-color:var(--blue)}
+.consent a{color:var(--blue);text-decoration:underline}
+.form-msg{margin:0;padding:14px 16px;border-radius:10px;background:var(--blue-soft);color:var(--blue-ink);font-weight:600;font-size:14px}
+
+/* ---------- FAQ ---------- */
+.faq{padding-top:clamp(70px,9vw,110px);text-align:center}
+.contact{padding-bottom:clamp(90px,11vw,140px)}
+.faq-list{max-width:780px;margin:40px auto 0;display:grid;gap:12px;text-align:left}
+.faq-item{background:#fff;border:1px solid var(--blue-line);border-radius:var(--r-md);overflow:hidden;transition:box-shadow .3s,border-color .3s}
+.faq-item.is-open{border-color:var(--blue);box-shadow:0 20px 40px -30px rgba(15,31,143,.6)}
+.faq-item h3{margin:0}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:0;text-align:left;font-weight:700;font-size:15px;color:var(--blue)}
+.faq-ico{flex:none;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);display:grid;place-items:center;transition:transform .4s,background .3s}
+.faq-ico svg{width:14px;height:14px}
+.faq-item.is-open .faq-ico{transform:rotate(45deg);background:var(--orange);color:#fff}
+.faq-a{height:0;overflow:hidden}
+.faq-a p{margin:0;padding:0 20px 20px;font-size:14px;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--blue);color:#fff;margin-top:0;border-radius:32px 32px 0 0;padding-block:56px 24px;overflow:hidden;position:relative}
+.foot-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr auto;gap:32px;align-items:start}
+.foot-grid > *{min-width:0}
+.footer .logo{margin:0;background:none;padding:0}
+.footer .logo-n{font-size:64px}.footer .logo-txt{font-size:26px}
+.foot-follow{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-size:13px;font-weight:600}
+.foot-box{border:1px solid rgba(255,255,255,.22);border-radius:var(--r-md);padding:18px;font-size:14px;color:rgba(255,255,255,.8);display:grid;gap:12px}
+.foot-box .loc{display:inline-flex;gap:8px;align-items:center;color:#fff;font-weight:700}
+.foot-box .loc svg{width:16px;height:16px}
+.foot-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin:0 0 10px;font-weight:700}
+.foot-links{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.foot-links a{font-weight:600;color:rgba(255,255,255,.75);transition:color .25s,padding .25s}
+.foot-links a:hover{color:#fff;padding-left:6px}
+.foot-contact{display:grid;gap:10px;justify-items:end}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:12px;color:rgba(255,255,255,.7)}
+.foot-bottom nav{display:flex;flex-wrap:wrap;gap:6px 14px}
+.foot-bottom a:hover{color:#fff}
+.foot-giant{font-family:var(--f-display);font-weight:800;font-size:clamp(80px,17vw,260px);line-height:.8;letter-spacing:-.03em;color:rgba(255,255,255,.07);white-space:nowrap;margin:40px 0 -30px;text-align:center;user-select:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .offers{grid-template-columns:1fr;max-width:520px;margin-inline:auto;gap:130px;margin-top:150px}
+  .member{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+  .member-q{grid-column:1/-1;padding-top:0}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-contact{justify-items:start}
+}
+@media (max-width:820px){
+  .hero{padding-top:120px;background:linear-gradient(180deg,var(--blue) 0%,#3456FF 75%,#4E6BFF 84%,#fff 84.1%)}
+  .hero-grid{grid-template-columns:1fr}
+  .method-head{grid-template-columns:1fr;gap:16px}
+  .step{grid-template-columns:1fr;gap:0}
+  .step-num{font-size:110px;margin-bottom:-14px;position:relative;z-index:0}
+  .step-card{position:relative}
+  .step{top:calc(env(safe-area-inset-top,0px) + 16px + var(--i,0) * 18px)}
+  .member{grid-template-columns:1fr}
+  .member-media{max-width:360px;margin-bottom:24px}
+}
+@media (max-width:560px){
+  .step-sub,.row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .glyph{height:200px}
+  .offer-visual{height:200px;margin-top:-110px}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="hdr">
+    <a class="logo" href="#top" aria-label="Nouvelle Version, retour à l'accueil">
+      <span class="logo-n" aria-hidden="true">N</span><span class="logo-txt" aria-hidden="true">Nouvelle<br>Version</span>
+    </a>
+    <nav class="nav-pill" aria-label="Navigation principale">
+      <span class="nav-ind" aria-hidden="true"></span>
+      <a href="#solutions" data-target="solutions">Nos Solutions</a>
+      <a href="#methode" data-target="methode">Notre Méthode</a>
+      <a href="#apropos" data-target="apropos">À Propos</a>
+    </nav>
+    <div class="hdr-right">
+      <a class="pill pill--glass" href="tel:+33689999999"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+33 6 89 99 99 99</a>
+      <a class="pill pill--glass" href="mailto:nouvelle-version@mail.com">nouvelle-version@mail.com</a>
+      <a class="btn btn-orange magnetic" href="#contact">Discutons de votre projet</a>
+    </div>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a class="mm-link" href="#solutions">Nos Solutions</a>
+  <a class="mm-link" href="#methode">Notre Méthode</a>
+  <a class="mm-link" href="#apropos">À Propos</a>
+  <a class="mm-link" href="#contact">Contact</a>
+  <div class="mm-contact">
+    <a class="btn btn-orange" href="#contact">Discutons de votre projet</a>
+    <a class="pill" href="tel:+33689999999">+33 6 89 99 99 99</a>
+    <a class="pill" href="mailto:nouvelle-version@mail.com">nouvelle-version@mail.com</a>
+  </div>
+</div>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="grid-lines"></div>
+    <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-main">
+      <p class="eyebrow eyebrow--glass">Expertise WordPress &amp; contenus marketing</p>
+      <h1 class="display hero-title" id="hero-title" data-split="words">Transformez votre site en levier de performance</h1>
+      <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+      <ul class="stats">
+        <li class="stat"><strong><span class="count" data-count="48">48</span>h</strong><span>Pour recevoir votre 1<sup>er</sup> audit gratuit</span></li>
+        <li class="stat"><strong><span class="count" data-count="25">25</span>+</strong><span>Années d'expertise cumulées</span></li>
+        <li class="stat"><strong><span class="count" data-count="100">100</span>%</strong><span>Accompagnement sur-mesure</span></li>
+      </ul>
+    </div>
+    <aside class="hero-aside">
+      <a class="hero-follow" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="in"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></span>Suivez-nous !</a>
+      <div class="collab">
+        <div class="avatars"><img class="avatar" src="images/av-violaine.webp" alt="Violaine Amiot" width="54" height="54"><img class="avatar" src="images/av-david.webp" alt="David Marin" width="54" height="54"><img class="avatar" src="images/av-nicolas.webp" alt="Nicolas Genaudet" width="54" height="54"></div>
+        <div><p class="collab-title">3 Collaborateurs</p><p class="collab-sub">Passionnés &amp; expérimentés</p></div>
+      </div>
+      <p class="hero-lead">Nous proposons des solutions WordPress sur-mesure pour les entreprises et particuliers souhaitant développer leur présence digitale.</p>
+    </aside>
+  </div>
+
+  <!-- Offres -->
+  <div class="wrap offers" id="solutions">
+    <h2 class="sr-only">Nos solutions WordPress</h2>
+
+    <article class="offer offer--blue" data-tilt>
+      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><img class="glyph" src="images/n-bleu.webp" alt="" width="520" height="744" decoding="async"></div></div>
+      <div class="offer-head"><span class="offer-num">1</span><div><p class="offer-kicker">Site one page</p><h3>Nouvelle page</h3></div></div>
+      <p class="offer-desc">Créer une page complète et optimisée qui transforme les visiteurs en prospects.</p>
+      <ul class="offer-list">
+        <li>Réunion de cadrage</li>
+        <li>Optimisation UX &amp; Conversion</li>
+        <li>Rédaction ou optimisation des contenus</li>
+        <li>Webdesign responsive</li>
+        <li>Intégration sous WordPress administrable</li>
+        <li>Paramétrages SEO &amp; GEO</li>
+      </ul>
+      <a class="btn btn-white magnetic" href="#contact">J'estime mon budget</a>
+    </article>
+
+    <article class="offer offer--orange" data-tilt>
+      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><img class="glyph" src="images/n-orange.webp" alt="" width="520" height="744" decoding="async"></div></div>
+      <div class="offer-head"><span class="offer-num">2</span><div><p class="offer-kicker">Refonte de votre site</p><h3>Nouvelle version</h3></div></div>
+      <p class="offer-desc">Transformer un site existant en outil commercial performant, efficace et mis en avant.</p>
+      <ul class="offer-list">
+        <li>Réunion de lancement <em>(free call)</em></li>
+        <li>Atelier de co-construction <em>(option)</em></li>
+        <li>Définition de l'arborescence et structure du site</li>
+        <li>Optimisation des contenus existants</li>
+        <li>Maquettes webdesign responsive</li>
+        <li>Développement WordPress</li>
+        <li>Paramétrages SEO &amp; GEO</li>
+        <li>Gestion de projet</li>
+      </ul>
+      <a class="btn btn-white magnetic" href="#contact">J'estime mon budget</a>
+    </article>
+
+    <article class="offer offer--dark" data-tilt>
+      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><img class="glyph" src="images/n-noir.webp" alt="" width="520" height="744" decoding="async"></div></div>
+      <div class="offer-head"><span class="offer-num">3</span><div><p class="offer-kicker">Solution sur-mesure</p><h3>Nouvelle dimension</h3></div></div>
+      <p class="offer-desc">Créer ou transformer un site web en vitrine digitale capable de rivaliser avec les leaders du marché.</p>
+      <ul class="offer-list">
+        <li>Réunion de cadrage</li>
+        <li>Atelier de co-construction</li>
+        <li>Définition de l'arborescence et structure du site</li>
+        <li>Rédaction de contenus optimisés et copywriting</li>
+        <li>Maquettes webdesign responsive</li>
+        <li>Développement WordPress</li>
+        <li>Back-office personnalisé</li>
+        <li>Paramétrages SEO &amp; GEO</li>
+        <li>Gestion de projet</li>
+        <li>Réunions de suivi</li>
+      </ul>
+      <a class="btn btn-white magnetic" href="#contact">J'estime mon budget</a>
+    </article>
+  </div>
+</section>
+
+<!-- ================= MARQUEE 1 ================= -->
+<div class="marquee-band">
+  <div class="marquee" data-dir="left">
+    <div class="marquee-track">
+      <ul><li>Marketing digital</li><li>Copywriting</li><li>Accompagnement SEO / GEO</li><li>WordPress</li><li>UX / UI</li><li>Développement</li><li>Webdesign</li></ul>
+      <ul aria-hidden="true"><li>Marketing digital</li><li>Copywriting</li><li>Accompagnement SEO / GEO</li><li>WordPress</li><li>UX / UI</li><li>Développement</li><li>Webdesign</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MÉTHODE ================= -->
+<section class="section" id="methode" aria-labelledby="methode-title">
+  <div class="wrap">
+    <div class="method-head">
+      <div>
+        <p class="eyebrow">Votre méthode</p>
+        <h2 class="display h2" id="methode-title" data-split="chars">Votre projet en 3 étapes</h2>
+      </div>
+      <p class="method-intro reveal">Nouvelle Version c'est une triple expertise digitale, zéro confusion : un interlocuteur unique pour le design, un pour la technique &amp; un autre pour le contenu.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step-num" aria-hidden="true">1/3</div>
+        <div class="step-card">
+          <h3>Audit et définition du périmètre</h3>
+          <div class="step-sub">
+            <div class="sub">
+              <h4>Audit et recommandations</h4>
+              <p>Nous analysons votre site et/ou vos canaux de communication : fonctionnalités, contenu, SEO, design. Nous vous aidons à comprendre votre activité et vos objectifs pour identifier les leviers à activer.</p>
+            </div>
+            <div class="sub">
+              <h4>Définition de la prestation sur-mesure</h4>
+              <p>Périmètre, livrables, planning et budget : vous savez exactement ce qui sera fait, par qui et quand.</p>
+              <a class="more" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>En savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">2/3</div>
+        <div class="step-card">
+          <h3>Conception web de votre Nouvelle Version</h3>
+          <div class="step-sub">
+            <div class="sub">
+              <h4>Développement web et rédaction de contenus optimisés</h4>
+              <p>Maquettes validées ensemble, textes pensés pour Google et les IA, intégration WordPress administrable.</p>
+              <a class="more" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>En savoir plus</a>
+            </div>
+            <div class="sub">
+              <h4>Mise en ligne de votre site optimisée</h4>
+              <p>Recette, performances, redirections et paramétrages SEO &amp; GEO avant la mise en production.</p>
+              <a class="more" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>En savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">3/3</div>
+        <div class="step-card">
+          <h3>Optimisation et accompagnement à la prise en main</h3>
+          <div class="step-sub">
+            <div class="sub">
+              <h4>Suivi et transmission</h4>
+              <p>Formation à votre back-office, documentation et suivi des premiers résultats.</p>
+              <a class="more" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>En savoir plus</a>
+            </div>
+            <div class="sub sub--launch">
+              <h4>Et hop, l'aventure est lancée !</h4>
+              <span class="star" style="left:22%;top:46%" aria-hidden="true">✦</span>
+              <span class="star" style="left:50%;top:38%" aria-hidden="true">✦</span>
+              <span class="star" style="left:62%;top:70%" aria-hidden="true">·</span>
+              <span class="star" style="left:40%;top:60%" aria-hidden="true">✧</span>
+              <svg class="rocket" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <g class="rocket-body"><path d="M78 20c12-4 22-4 22-4s0 10-4 22L62 72 48 58z"/><circle cx="82" cy="38" r="6"/><path d="M48 58l-14-2 10-14 18 2M62 72l2 14 14-10-2-18"/></g>
+                <path class="flame" d="M44 76c-8 0-14 12-16 20 8-2 20-8 20-16"/>
+                <path class="trail" d="M30 90l-14 14M38 98l-8 8M22 82l-8 8" opacity=".6"/>
+              </svg>
+              <a class="btn btn-white magnetic" href="#contact">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta-wrap" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta">
+      <span class="ring ring--1" aria-hidden="true"></span><span class="ring ring--2" aria-hidden="true"></span>
+      <h2 class="display" id="cta-title" data-split="words">Votre site mérite une Nouvelle Version</h2>
+      <p class="reveal">Besoin d'une page de vente, d'une refonte ou d'un site plus lucratif ? Quel que soit votre projet, parlons-en. C'est gratuit et sans engagement. <strong>Réservez votre créneau de 30 min.</strong></p>
+      <a class="btn btn-white magnetic reveal" href="#contact">Je prends rendez-vous</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= À PROPOS ================= -->
+<section class="about" id="apropos" aria-labelledby="apropos-title">
+  <div class="wrap">
+    <h2 class="eyebrow eyebrow--glass" id="apropos-title">À propos</h2>
+    <p class="about-quote" data-scrub>Une plume, un regard, un cerveau technique. Trois freelances, un seul projet, et plus aucun relais perdu. Chez Nouvelle Version, tout se pense ensemble, dès le premier jour.</p>
+  </div>
+</section>
+
+<!-- ================= ÉQUIPE ================= -->
+<section class="wrap team" aria-label="L'équipe Nouvelle Version">
+  <article class="member">
+    <div class="member-q"><span class="q-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span><p>À quoi sert un beau site s'il n'apparaît pas sur Google ?</p></div>
+    <div class="member-media">
+      <div class="media-panel">
+        <a class="soc" href="mailto:nouvelle-version@mail.com" aria-label="Écrire à Violaine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></a>
+        <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de Violaine Amiot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+      </div>
+      <div class="portrait"><img class="portrait-in" src="images/violaine-amiot.webp" alt="Violaine Amiot, rédactrice web et consultante SEO chez Nouvelle Version" width="640" height="843" loading="lazy" decoding="async" style="object-position:50% 20%"></div>
+      <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <div class="member-body">
+      <h3 data-split="chars">Violaine Amiot</h3>
+      <p class="role">Rédaction web &amp; SEO</p>
+      <p class="bio">Elle optimise ou rédige le contenu web de votre WordPress pour gagner en visibilité auprès de vos clients et de Google. Sa vision 360 vous accompagne également sur votre marketing de contenu, la stratégie la plus durable pour un site internet.</p>
+      <div class="skills"><h4>Compétences</h4><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Copywriting</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>SEO</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Rédaction</li></ul></div>
+    </div>
+  </article>
+
+  <article class="member">
+    <div class="member-q"><span class="q-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span><p>Comment se démarquer sur un marché saturé ?</p></div>
+    <div class="member-media">
+      <div class="media-panel">
+        <a class="soc" href="mailto:nouvelle-version@mail.com" aria-label="Écrire à David"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></a>
+        <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de David Marin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+      </div>
+      <div class="portrait"><img class="portrait-in" src="images/david-marin.webp" alt="David Marin, webdesigner UX/UI chez Nouvelle Version" width="640" height="823" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
+      <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <div class="member-body">
+      <h3 data-split="chars">David Marin</h3>
+      <p class="role">Webdesign UX / UI</p>
+      <p class="bio">Il met en place le système graphique qui saura faire rayonner votre marque. Sa maîtrise de l'UX rend votre site clair, accessible et immédiatement reconnaissable. Sa navigation, fluide et ludique, guide vos visiteurs jusqu'à la conversion.</p>
+      <div class="skills"><h4>Compétences</h4><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Webdesign</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>UX/UI</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Maquettage</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Prototypage</li></ul></div>
+    </div>
+  </article>
+
+  <article class="member">
+    <div class="member-q"><span class="q-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span><p>Comment mettre en place une machine à clics ?</p></div>
+    <div class="member-media">
+      <div class="media-panel">
+        <a class="soc" href="mailto:nouvelle-version@mail.com" aria-label="Écrire à Nicolas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></a>
+        <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de Nicolas Genaudet"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+      </div>
+      <div class="portrait"><img class="portrait-in" src="images/nicolas-genaudet.webp" alt="Nicolas Genaudet, développeur WordPress chez Nouvelle Version" width="480" height="480" loading="lazy" decoding="async" style="object-position:40% 50%"></div>
+      <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+    <div class="member-body">
+      <h3 data-split="chars">Nicolas Genaudet</h3>
+      <p class="role">Développement WordPress</p>
+      <p class="bio">Il construit votre site WordPress de fond en comble, de la structure à l'arborescence. Chaque fonctionnalité est choisie pour répondre à vos besoins, pas pour remplir une liste. Résultat : un site solide, logique et simple à faire évoluer, qui travaille pour votre business.</p>
+      <div class="skills"><h4>Compétences</h4><ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>DEV JS</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>DEV WordPress</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>DEV React</li></ul></div>
+    </div>
+  </article>
+</section>
+
+<!-- ================= MARQUEE 2 ================= -->
+<div class="marquee-band" style="margin-top:clamp(50px,7vw,90px)">
+  <div class="marquee marquee--alt" data-dir="right">
+    <div class="marquee-track">
+      <ul><li>Site vitrine</li><li>Site One-Page</li><li>Site E-Commerce</li><li>Rédaction d'articles</li><li>Parcours client</li><li>Automatisation</li></ul>
+      <ul aria-hidden="true"><li>Site vitrine</li><li>Site One-Page</li><li>Site E-Commerce</li><li>Rédaction d'articles</li><li>Parcours client</li><li>Automatisation</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <p class="eyebrow">Devis &amp; renseignements</p>
+    <h2 class="display h2" id="contact-title" data-split="chars">Contactez-nous</h2>
+    <p class="contact-lead reveal">C'est gratuit et sans engagement. Chez Nouvelle Version nous sommes à l'écoute de vos questions, quel que soit le niveau d'avancement de votre besoin ou son envergure.</p>
+
+    <form class="form" id="contact-form" novalidate>
+      <fieldset class="field" style="border:0;margin:0;padding:0">
+        <legend class="field-head" style="width:100%;display:flex">Quelle solution vous intéresse ? <span>Optionnel</span></legend>
+        <div class="chips">
+          <div class="chip chip--1"><input type="radio" name="solution" id="sol-page" value="Nouvelle Page"><label for="sol-page"><b>1</b>Nouvelle Page</label></div>
+          <div class="chip chip--2"><input type="radio" name="solution" id="sol-version" value="Nouvelle Version"><label for="sol-version"><b>2</b>Nouvelle Version</label></div>
+          <div class="chip chip--3"><input type="radio" name="solution" id="sol-dimension" value="Nouvelle Dimension"><label for="sol-dimension"><b>3</b>Nouvelle Dimension</label></div>
+        </div>
+      </fieldset>
+      <div class="field">
+        <div class="field-head">Votre nom <span>Obligatoire</span></div>
+        <div class="row">
+          <label class="sr-only" for="f-prenom">Prénom</label><input class="input" id="f-prenom" name="prenom" placeholder="Prénom" autocomplete="given-name" required>
+          <label class="sr-only" for="f-nom">Nom</label><input class="input" id="f-nom" name="nom" placeholder="Nom" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-head">Vos coordonnées <span>Obligatoire</span></div>
+        <div class="row">
+          <label class="sr-only" for="f-tel">Téléphone</label><input class="input" id="f-tel" name="tel" type="tel" placeholder="Téléphone" autocomplete="tel" required>
+          <label class="sr-only" for="f-email">Email</label><input class="input" id="f-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-head"><label for="f-msg">Votre message</label> <span>Obligatoire</span></div>
+        <textarea class="input" id="f-msg" name="message" placeholder="Écrivez votre message ici…" required></textarea>
+      </div>
+      <label class="consent" for="f-rgpd"><input type="checkbox" id="f-rgpd" name="rgpd" required><span>J'accepte que mes données soient utilisées pour traiter ma demande. Plus d'informations sur le traitement de vos données <a href="#confidentialite">ici</a>.</span></label>
+      <p class="form-msg" id="form-msg" role="status" hidden></p>
+      <div><button class="btn btn-orange magnetic" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Envoyer le formulaire</button></div>
+    </form>
+  </div>
+
+  <!-- ================= FAQ ================= -->
+  <div class="wrap faq" id="faq">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="display h2" data-split="chars" style="font-size:clamp(36px,4.4vw,56px)">Questions fréquentes</h2>
+    <div class="faq-list">
+      <div class="faq-item is-open"><h3><button class="faq-q" aria-expanded="true" aria-controls="faq-1" id="faq-b1">Quels services proposez-vous exactement ?<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-a" id="faq-1" role="region" aria-labelledby="faq-b1" style="height:auto"><p>Création de sites one page, refonte de sites WordPress et projets sur-mesure : stratégie, rédaction SEO, webdesign UX/UI et développement WordPress, avec un interlocuteur dédié par expertise.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false" aria-controls="faq-2" id="faq-b2">Comment puis-je demander un devis personnalisé ?<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-a" id="faq-2" role="region" aria-labelledby="faq-b2"><p>Remplissez le formulaire ci-dessus ou réservez un créneau de 30 minutes. Vous recevez un premier audit gratuit sous 48h, puis un devis détaillé.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false" aria-controls="faq-3" id="faq-b3">Quels délais faut-il prévoir pour la création d'un site ?<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-a" id="faq-3" role="region" aria-labelledby="faq-b3"><p>En moyenne 2 à 3 semaines pour une page unique, 4 à 8 semaines pour une refonte, davantage pour un projet sur-mesure. Le planning est fixé dès la réunion de cadrage.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false" aria-controls="faq-4" id="faq-b4">Proposez-vous des options de maintenance après la livraison ?<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-a" id="faq-4" role="region" aria-labelledby="faq-b4"><p>Oui : mises à jour WordPress, sauvegardes, sécurité, petites évolutions et optimisation SEO continue.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false" aria-controls="faq-5" id="faq-b5">Comment se déroule le processus de collaboration avec votre équipe ?<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-a" id="faq-5" role="region" aria-labelledby="faq-b5"><p>Réunion de cadrage, atelier de co-construction, maquettes validées ensemble, développement, puis prise en main de votre back-office. Vous échangez directement avec la personne qui réalise chaque partie.</p></div></div>
+      <div class="faq-item"><h3><button class="faq-q" aria-expanded="false" aria-controls="faq-6" id="faq-b6">Quels types de sites web pouvez-vous développer ?<span class="faq-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-a" id="faq-6" role="region" aria-labelledby="faq-b6"><p>Sites vitrines, one page, e-commerce WooCommerce, blogs et sites de contenu, avec parcours client et automatisations sur-mesure.</p></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a class="logo" href="#top" aria-label="Nouvelle Version, retour en haut"><span class="logo-n" aria-hidden="true">N</span><span class="logo-txt" aria-hidden="true">Nouvelle<br>Version</span></a>
+        <a class="foot-follow" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="soc" style="width:30px;height:30px;background:#fff;color:var(--blue)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></span>Suivez-nous !</a>
+      </div>
+      <div class="foot-col foot-box">
+        <span>3 collaborateurs passionnés au service de votre projet</span>
+        <span class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Lyon</span>
+      </div>
+      <nav class="foot-col" aria-label="Liens rapides">
+        <p class="foot-title">Liens rapides</p>
+        <ul class="foot-links"><li><a href="#solutions">Nos Solutions</a></li><li><a href="#methode">Notre Méthode</a></li><li><a href="#apropos">À Propos</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </nav>
+      <div class="foot-col foot-contact">
+        <a class="pill" href="tel:+33689999999">+33 6 89 99 99 99</a>
+        <a class="pill pill--glass" href="mailto:nouvelle-version@mail.com">nouvelle-version@mail.com</a>
+      </div>
+    </div>
+    <div class="foot-giant" aria-hidden="true">Nouvelle Version</div>
+    <div class="foot-bottom">
+      <span>Copyright © 2026 Nouvelle Version. Tous droits réservés.</span>
+      <nav aria-label="Informations légales"><a href="#cgv">Conditions générales</a><a href="#mentions">Mentions légales</a><a href="#confidentialite" id="confidentialite">Politique de confidentialité</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var hasGsap = typeof window.gsap !== "undefined";
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* ---------- Split texte (mots / lettres), accessible ---------- */
+  function split(el, mode){
+    var text = el.textContent.trim().replace(/\s+/g," ");
+    el.setAttribute("aria-label", text);
+    el.textContent = "";
+    var words = text.split(" ");
+    words.forEach(function(word, i){
+      var w = document.createElement("span"); w.className = "w"; w.setAttribute("aria-hidden","true");
+      var wi = document.createElement("span"); wi.className = "wi";
+      if(mode === "chars"){
+        Array.from(word).forEach(function(c){var ch=document.createElement("span");ch.className="ch";ch.textContent=c;wi.appendChild(ch);});
+      } else { wi.textContent = word; }
+      w.appendChild(wi); el.appendChild(w);
+      if(i < words.length-1) el.appendChild(document.createTextNode(" "));
+    });
+    return mode === "chars" ? $$(".ch", el) : $$(".wi", el);
+  }
+  $$("[data-split]").forEach(function(el){ el._parts = split(el, el.dataset.split); });
+  var scrub = $("[data-scrub]"); if(scrub) scrub._parts = split(scrub,"words");
+
+  /* ---------- FAQ (fonctionne toujours) ---------- */
+  $$(".faq-q").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.closest(".faq-item"), panel = item.querySelector(".faq-a"), open = item.classList.contains("is-open");
+      $$(".faq-item.is-open").forEach(function(other){
+        if(other === item) return;
+        other.classList.remove("is-open"); other.querySelector(".faq-q").setAttribute("aria-expanded","false");
+        var p = other.querySelector(".faq-a");
+        if(hasGsap) gsap.to(p,{height:0,duration:.45,ease:"power3.inOut"}); else p.style.height="0";
+      });
+      item.classList.toggle("is-open", !open); btn.setAttribute("aria-expanded", String(!open));
+      if(hasGsap){
+        if(open) gsap.to(panel,{height:0,duration:.45,ease:"power3.inOut"});
+        else { gsap.fromTo(panel,{height:0},{height:"auto",duration:.55,ease:"power3.out"}); gsap.from(panel.querySelector("p"),{y:12,opacity:0,duration:.5,delay:.1}); }
+      } else panel.style.height = open ? "0" : "auto";
+    });
+  });
+
+  /* ---------- Formulaire (statique : à brancher sur votre outil) ---------- */
+  var form = $("#contact-form"), msg = $("#form-msg");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var invalid = $$("[required]", form).filter(function(f){ return f.type==="checkbox" ? !f.checked : !f.value.trim() || (f.type==="email" && !/^\S+@\S+\.\S+$/.test(f.value)); });
+    $$(".input", form).forEach(function(f){ f.style.borderColor = ""; });
+    if(invalid.length){
+      msg.hidden = false; msg.textContent = "Il manque " + invalid.length + " information(s) : vérifiez les champs surlignés et la case de consentement.";
+      invalid.forEach(function(f){ if(f.classList.contains("input")) f.style.borderColor = "var(--orange-deep)"; });
+      if(hasGsap) gsap.fromTo(form,{x:-8},{x:0,duration:.5,ease:"elastic.out(1,.3)"});
+      invalid[0].focus(); return;
+    }
+    msg.hidden = false; msg.textContent = "Merci " + $("#f-prenom").value.trim() + " ! Votre demande est prête. Nous revenons vers vous sous 48h.";
+    if(hasGsap) gsap.from(msg,{y:16,opacity:0,duration:.6,ease:"back.out(2)"});
+    form.reset();
+  });
+
+  /* ---------- Menu mobile ---------- */
+  var burger = $(".burger"), menu = $("#mobile-menu"), menuTl = null;
+  function setMenu(open){
+    document.body.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", String(open)); burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    menu.setAttribute("aria-hidden", String(!open));
+    if(!hasGsap){ menu.style.visibility = open?"visible":"hidden"; menu.style.clipPath = open?"none":""; return; }
+    if(!menuTl){
+      menuTl = gsap.timeline({paused:true})
+        .set(menu,{visibility:"visible"})
+        .to(menu,{clipPath:"circle(150% at calc(100% - 40px) 40px)",duration:.8,ease:"power3.inOut"})
+        .from($$(".mm-link",menu),{y:60,opacity:0,stagger:.07,duration:.6,ease:"expo.out"},"-=.35")
+        .from($$(".mm-contact > *",menu),{y:20,opacity:0,stagger:.06,duration:.4},"-=.3");
+    }
+    open ? menuTl.timeScale(1).play() : menuTl.timeScale(1.6).reverse();
+  }
+  burger.addEventListener("click", function(){ setMenu(!document.body.classList.contains("menu-open")); });
+  $$("a",menu).forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+
+  if(!hasGsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- Barre de progression ---------- */
+  gsap.to(".progress",{scaleX:1,ease:"none",scrollTrigger:{start:0,end:"max",scrub:.3}});
+
+  /* ---------- Header : état scrollé + masquage au scroll ---------- */
+  var header = $("#header");
+  ScrollTrigger.create({start:0,end:"max",onUpdate:function(self){
+    var y = self.scroll();
+    header.classList.toggle("is-scrolled", y > 40);
+    if(document.body.classList.contains("menu-open")) return;
+    gsap.to(header,{yPercent:(self.direction===1 && y>400) ? -130 : 0,duration:.45,ease:"power3.out",overwrite:"auto"});
+  }});
+
+  /* ---------- Indicateur de navigation ---------- */
+  var ind = $(".nav-ind"), navLinks = $$(".nav-pill a");
+  function moveInd(link){
+    navLinks.forEach(function(a){a.classList.toggle("is-active", a===link)});
+    if(!link){ gsap.to(ind,{width:0,duration:.3}); return; }
+    gsap.to(ind,{x:link.offsetLeft-5,width:link.offsetWidth,duration:.5,ease:"expo.out"});
+  }
+  navLinks.forEach(function(a){
+    var sec = document.getElementById(a.dataset.target); if(!sec) return;
+    ScrollTrigger.create({trigger:sec,start:"top 55%",end:"bottom 55%",onToggle:function(s){ if(s.isActive) moveInd(a); else if(!navLinks.some(function(l){return l.classList.contains("is-active") && l!==a})) moveInd(null); }});
+  });
+
+  var mm = gsap.matchMedia();
+  mm.add({motion:"(prefers-reduced-motion: no-preference)", fine:"(pointer: fine)"}, function(ctx){
+    if(!ctx.conditions.motion) return;
+    var fine = ctx.conditions.fine;
+
+    /* ===== Intro hero ===== */
+    var heroTitle = $(".hero-title");
+    var intro = gsap.timeline({defaults:{ease:"expo.out"}});
+    intro.from(".hdr",{y:-80,opacity:0,duration:1})
+      .from(".hero .eyebrow",{y:20,opacity:0,duration:.7},"-=.6")
+      .from(heroTitle._parts,{yPercent:115,rotate:6,duration:1.1,stagger:.07},"-=.5")
+      .fromTo(".hero .squiggle .draw",{strokeDasharray:200,strokeDashoffset:200},{strokeDashoffset:0,duration:1,ease:"power2.inOut"},"-=.7")
+      .from(".stat",{y:30,opacity:0,stagger:.1,duration:.8},"-=.7")
+      .from(".hero-follow",{x:30,opacity:0,duration:.7},"-=.8")
+      .from(".avatar",{scale:0,rotate:-30,stagger:.08,duration:.6,ease:"back.out(2.4)"},"-=.6")
+      .from(".collab > div:last-child, .hero-lead",{x:30,opacity:0,stagger:.1,duration:.7},"-=.4")
+      .from(".offer",{y:160,opacity:0,rotateX:-25,transformOrigin:"50% 100%",stagger:.14,duration:1.3},"-=.6")
+      .from(".glyph",{y:-120,scale:.5,opacity:0,stagger:.14,duration:1.1,ease:"bounce.out"},"-=1.1")
+      .from(".offer-list li",{x:-14,opacity:0,stagger:.02,duration:.4},"-=.8");
+
+    /* Compteurs */
+    $$(".count").forEach(function(el,i){
+      var end = +el.dataset.count, o = {v:0};
+      gsap.to(o,{v:end,duration:2,delay:1.1+i*.15,ease:"power2.out",onUpdate:function(){el.textContent=Math.round(o.v)}});
+    });
+
+    /* Ambiance : blobs + flottement des N */
+    gsap.to(".blob--1",{x:-80,y:60,duration:9,repeat:-1,yoyo:true,ease:"sine.inOut"});
+    gsap.to(".blob--2",{x:90,y:-40,duration:11,repeat:-1,yoyo:true,ease:"sine.inOut"});
+    gsap.to(".blob--3",{x:-120,y:80,scale:1.3,duration:8,repeat:-1,yoyo:true,ease:"sine.inOut"});
+    $$(".glyph-wrap").forEach(function(g,i){ gsap.to(g,{y:-12,duration:2.6+i*.3,repeat:-1,yoyo:true,ease:"sine.inOut",delay:i*.4}); gsap.to(g,{rotate:i%2?2.5:-2.5,duration:3.4+i*.4,repeat:-1,yoyo:true,ease:"sine.inOut"}); });
+
+    /* Parallaxe hero au scroll */
+    gsap.to(".hero-main",{yPercent:-18,opacity:.4,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"40% top",scrub:true}});
+    gsap.to(".hero-aside",{yPercent:-30,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"40% top",scrub:true}});
+    gsap.to(".grid-lines",{backgroundPosition:"0 200px",ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
+
+    /* Tilt 3D des cartes + parallaxe souris */
+    if(fine){
+      $$("[data-tilt]").forEach(function(card){
+        var glyph = $(".glyph",card), rx = gsap.quickTo(card,"rotationX",{duration:.6,ease:"power3"}), ry = gsap.quickTo(card,"rotationY",{duration:.6,ease:"power3"}),
+            gx = gsap.quickTo(glyph,"x",{duration:.8,ease:"power3"}), gy = gsap.quickTo(glyph,"y",{duration:.8,ease:"power3"});
+        card.addEventListener("pointermove",function(e){
+          var r = card.getBoundingClientRect(), px = (e.clientX-r.left)/r.width-.5, py = (e.clientY-r.top)/r.height-.5;
+          ry(px*12); rx(-py*10); gx(px*30); gy(py*20);
+        });
+        card.addEventListener("pointerleave",function(){ rx(0); ry(0); gx(0); gy(0); });
+      });
+      var hero = $(".hero");
+      hero.addEventListener("pointermove",function(e){
+        var px = e.clientX/innerWidth-.5, py = e.clientY/innerHeight-.5;
+        gsap.to(".blob--3",{xPercent:px*60,yPercent:py*60,duration:1.2,overwrite:"auto"});
+        gsap.to(".avatars",{x:px*14,y:py*10,duration:1});
+      });
+    }
+
+    /* ===== Marquees avec accélération selon la vitesse de scroll ===== */
+    $$(".marquee").forEach(function(m){
+      var track = $(".marquee-track",m), right = m.dataset.dir === "right";
+      var tw = gsap.fromTo(track,{xPercent:right?-50:0},{xPercent:right?0:-50,duration:right?34:30,ease:"none",repeat:-1});
+      gsap.from(m,{xPercent:right?-20:20,opacity:0,duration:1.2,ease:"expo.out",scrollTrigger:{trigger:m,start:"top 95%"}});
+      ScrollTrigger.create({trigger:m,start:"top bottom",end:"bottom top",onUpdate:function(self){
+        var boost = 1 + Math.min(Math.abs(self.getVelocity())/350, 6);
+        gsap.to(tw,{timeScale:boost,duration:.2,overwrite:true,onComplete:function(){ gsap.to(tw,{timeScale:1,duration:1.2,ease:"power2.out"}); }});
+      }});
+      gsap.to(m,{rotate:right?-1.5:2,ease:"none",scrollTrigger:{trigger:m,start:"top bottom",end:"bottom top",scrub:true}});
+    });
+
+    /* ===== Titres en lettres ===== */
+    $$("[data-split='chars']").forEach(function(h){
+      gsap.from(h._parts,{yPercent:120,rotate:12,opacity:0,stagger:.025,duration:.9,ease:"expo.out",scrollTrigger:{trigger:h,start:"top 85%"}});
+    });
+    $$(".section .eyebrow, .faq .eyebrow, .about .eyebrow").forEach(function(e){
+      gsap.from(e,{y:16,opacity:0,scale:.9,duration:.7,ease:"back.out(2)",scrollTrigger:{trigger:e,start:"top 90%"}});
+    });
+    $$(".reveal").forEach(function(r){
+      gsap.from(r,{y:30,opacity:0,duration:.9,ease:"power3.out",scrollTrigger:{trigger:r,start:"top 88%"}});
+    });
+
+    /* ===== Méthode : chiffres outline qui se remplissent ===== */
+    $$(".step").forEach(function(step,i){
+      var num = $(".step-num",step), card = $(".step-card",step), subs = $$(".sub",step);
+      gsap.fromTo(num,{backgroundPosition:"100% 0"},{backgroundPosition:"0% 0",ease:"none",scrollTrigger:{trigger:step,start:"top 80%",end:"center 45%",scrub:true}});
+      gsap.from(num,{xPercent:-25,opacity:0,duration:1.2,ease:"expo.out",scrollTrigger:{trigger:step,start:"top 85%"}});
+      var tl = gsap.timeline({scrollTrigger:{trigger:step,start:"top 78%"}});
+      tl.from(card,{x:100,opacity:0,duration:1,ease:"expo.out"})
+        .from($("h3",card),{y:20,opacity:0,duration:.6},"-=.6")
+        .from(subs,{y:50,opacity:0,rotate:i%2?-2:2,stagger:.12,duration:.8,ease:"back.out(1.4)"},"-=.4");
+    });
+    /* Empilement : l'étape recouverte recule pendant que la suivante arrive */
+    var stepEls = $$(".step");
+    stepEls.forEach(function(step,i){
+      var next = stepEls[i+1]; if(!next) return;
+      var stickTop = parseFloat(getComputedStyle(next).top) || 100;
+      var st = {trigger:next,start:"top bottom",end:"top " + stickTop + "px",scrub:true};
+      gsap.to($(".step-card",step),{scale:.93,transformOrigin:"50% 0%",ease:"none",scrollTrigger:st});
+      gsap.to($(".step-num",step),{opacity:.15,scale:.85,transformOrigin:"0% 50%",ease:"none",scrollTrigger:st});
+    });
+    /* Fusée */
+    var rocketTl = gsap.timeline({repeat:-1,yoyo:true});
+    rocketTl.to(".rocket",{x:6,y:-8,rotate:-4,duration:1.4,ease:"sine.inOut"});
+    gsap.to(".flame",{scale:1.25,transformOrigin:"100% 0%",opacity:.6,duration:.18,repeat:-1,yoyo:true,ease:"none"});
+    $$(".star").forEach(function(s,i){ gsap.to(s,{opacity:.2,scale:.6,duration:.8+i*.2,repeat:-1,yoyo:true,ease:"sine.inOut"}); });
+    gsap.from(".rocket",{x:-120,y:120,opacity:0,duration:1.4,ease:"expo.out",scrollTrigger:{trigger:".sub--launch",start:"top 85%"}});
+
+    /* ===== CTA : ouverture en clip-path ===== */
+    gsap.fromTo(".cta",{clipPath:"inset(12% 14% 12% 14% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 28px)",ease:"none",scrollTrigger:{trigger:".cta",start:"top 92%",end:"top 45%",scrub:true}});
+    gsap.from($("#cta-title")._parts,{yPercent:110,stagger:.06,duration:1,ease:"expo.out",scrollTrigger:{trigger:".cta",start:"top 70%"}});
+    gsap.to(".cta .ring--1",{rotate:360,scale:1.2,ease:"none",scrollTrigger:{trigger:".cta",start:"top bottom",end:"bottom top",scrub:true}});
+    gsap.to(".cta .ring--2",{scale:1.5,ease:"none",scrollTrigger:{trigger:".cta",start:"top bottom",end:"bottom top",scrub:true}});
+
+    /* ===== À propos : mots qui s'allument au scroll ===== */
+    if(scrub){
+      gsap.set(scrub._parts,{opacity:.28});
+      gsap.to(scrub._parts,{opacity:1,stagger:.1,ease:"none",scrollTrigger:{trigger:scrub,start:"top 80%",end:"bottom 45%",scrub:true}});
+      gsap.from(scrub,{y:60,duration:1,ease:"none",scrollTrigger:{trigger:".about",start:"top bottom",end:"center center",scrub:true}});
+    }
+
+    /* ===== Équipe ===== */
+    $$(".member").forEach(function(m,i){
+      var tl = gsap.timeline({scrollTrigger:{trigger:m,start:"top 75%"}});
+      tl.from($(".q-ico",m),{scale:0,rotate:-180,duration:.7,ease:"back.out(2.5)"})
+        .from($(".member-q p",m),{x:-30,opacity:0,duration:.7,ease:"power3.out"},"-=.4")
+        .from($(".media-panel",m),{xPercent:-40,opacity:0,duration:.9,ease:"expo.out"},"-=.5")
+        .fromTo($(".portrait",m),{clipPath:"inset(100% 0% 0% 0% round 22px)"},{clipPath:"inset(0% 0% 0% 0% round 22px)",duration:1.2,ease:"expo.inOut"},"-=.8")
+        .from($(".portrait-in",m),{scale:1.35,duration:1.4,ease:"expo.out"},"-=.9")
+        .fromTo($(".member-media .draw",m),{strokeDasharray:200,strokeDashoffset:200},{strokeDashoffset:0,duration:.9,ease:"power2.inOut"},"-=.9")
+        .from($$(".soc",m),{scale:0,stagger:.08,duration:.5,ease:"back.out(3)"},"-=.7")
+        .from($("h3",m)._parts,{yPercent:120,opacity:0,stagger:.03,duration:.8,ease:"expo.out"},"-=1")
+        .from($$(".role, .bio",m),{y:20,opacity:0,stagger:.1,duration:.7},"-=.6")
+        .from($(".skills",m),{y:30,opacity:0,duration:.7,ease:"power3.out"},"-=.4")
+        .from($$(".skills li",m),{scale:.4,opacity:0,stagger:.07,duration:.5,ease:"back.out(2.5)"},"-=.3");
+      gsap.to($(".portrait-in",m),{yPercent:10,ease:"none",scrollTrigger:{trigger:m,start:"top bottom",end:"bottom top",scrub:true}});
+      gsap.to($(".media-panel",m),{y:-30,ease:"none",scrollTrigger:{trigger:m,start:"top bottom",end:"bottom top",scrub:true}});
+      if(fine){
+        var por = $(".portrait",m);
+        por.addEventListener("pointermove",function(e){var r=por.getBoundingClientRect();gsap.to(por,{rotationY:((e.clientX-r.left)/r.width-.5)*14,rotationX:-((e.clientY-r.top)/r.height-.5)*14,transformPerspective:800,duration:.5});});
+        por.addEventListener("pointerleave",function(){gsap.to(por,{rotationY:0,rotationX:0,duration:.8,ease:"elastic.out(1,.4)"});});
+      }
+    });
+
+    /* ===== Contact ===== */
+    var ftl = gsap.timeline({scrollTrigger:{trigger:".form",start:"top 80%"}});
+    ftl.from(".form",{y:80,opacity:0,scale:.96,duration:1,ease:"expo.out"})
+       .from(".form .field, .form .consent, .form > div:last-child",{y:24,opacity:0,stagger:.08,duration:.6,ease:"power3.out"},"-=.6")
+       .from(".chip",{scale:0,stagger:.08,duration:.5,ease:"back.out(2.5)"},"-=.6");
+    $$(".chip input").forEach(function(r){ r.addEventListener("change",function(){ gsap.fromTo(r.nextElementSibling,{scale:.9},{scale:1,duration:.6,ease:"elastic.out(1,.35)"}); }); });
+    $$(".input").forEach(function(f){ f.addEventListener("focus",function(){ gsap.fromTo(f,{scale:.985},{scale:1,duration:.4,ease:"back.out(3)"}); }); });
+
+    /* ===== FAQ ===== */
+    gsap.from(".faq-item",{y:40,opacity:0,stagger:.08,duration:.7,ease:"power3.out",scrollTrigger:{trigger:".faq-list",start:"top 85%"}});
+
+    /* ===== Footer ===== */
+    var foot = gsap.timeline({scrollTrigger:{trigger:".footer",start:"top 85%"}});
+    foot.from(".footer",{borderRadius:"120px 120px 0 0",duration:1.2,ease:"expo.out"})
+        .from(".foot-col",{y:40,opacity:0,stagger:.1,duration:.8,ease:"power3.out"},"-=1")
+        .from(".foot-bottom",{opacity:0,duration:.6},"-=.3");
+    gsap.fromTo(".foot-giant",{xPercent:15},{xPercent:-15,ease:"none",scrollTrigger:{trigger:".footer",start:"top bottom",end:"bottom bottom",scrub:true}});
+
+    /* ===== Boutons magnétiques + curseur ===== */
+    if(fine){
+      $$(".magnetic").forEach(function(b){
+        var xT = gsap.quickTo(b,"x",{duration:.5,ease:"power3"}), yT = gsap.quickTo(b,"y",{duration:.5,ease:"power3"});
+        b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();xT((e.clientX-r.left-r.width/2)*.3);yT((e.clientY-r.top-r.height/2)*.4);});
+        b.addEventListener("pointerleave",function(){gsap.to(b,{x:0,y:0,duration:.8,ease:"elastic.out(1,.35)"});});
+      });
+      var cur = $(".cursor"), cx = gsap.quickTo(cur,"x",{duration:.25,ease:"power3"}), cy = gsap.quickTo(cur,"y",{duration:.25,ease:"power3"});
+      window.addEventListener("pointermove",function(e){ cur.style.opacity = 1; cx(e.clientX); cy(e.clientY); });
+      $$("a, button, label, .sub").forEach(function(el){
+        el.addEventListener("pointerenter",function(){cur.classList.add("is-hover")});
+        el.addEventListener("pointerleave",function(){cur.classList.remove("is-hover")});
+      });
+    }
+
+    return function(){ /* nettoyage géré par matchMedia */ };
+  });
+
+  window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
