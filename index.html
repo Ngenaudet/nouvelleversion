@@ -157,11 +157,8 @@ body.menu-open .burger span:last-child{transform:translateY(-3px) rotate(-45deg)
 .hero-follow .in svg{width:14px;height:14px}
 .collab{display:flex;align-items:center;gap:16px}
 .avatars{display:flex}
-.avatar{width:54px;height:54px;border-radius:50%;border:3px solid #fff;margin-left:-14px;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:18px;color:#fff;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
+.avatar{width:54px;height:54px;border-radius:50%;border:3px solid #fff;margin-left:-14px;object-fit:cover;background:var(--blue-soft);box-shadow:0 8px 20px -8px rgba(0,0,0,.4)}
 .avatar:first-child{margin-left:0}
-.av-1{background:linear-gradient(135deg,#F7A35C,#C8551E)}
-.av-2{background:linear-gradient(135deg,#7D8BA8,#2D3754)}
-.av-3{background:linear-gradient(135deg,#E8B79A,#9C5A3C)}
 .collab-title{font-family:var(--f-display);font-weight:700;font-size:28px;line-height:1;margin:0}
 .collab-sub{font-size:13px;color:rgba(255,255,255,.75);margin:2px 0 0}
 .hero-lead{margin:0;font-size:15px;color:rgba(255,255,255,.85);max-width:42ch}
@@ -172,18 +169,10 @@ body.menu-open .burger span:last-child{transform:translateY(-3px) rotate(-45deg)
 .offer--blue{background:linear-gradient(170deg,#3B5BFF 0%,var(--blue-deep) 100%);border:1px solid rgba(255,255,255,.22);--g1:#9FB6FF;--g2:#2645F0;--g3:#0C1C8A;--glow:#5C7CFF}
 .offer--orange{background:linear-gradient(170deg,#FF8F3D 0%,var(--orange-deep) 100%);--g1:#FFD2A8;--g2:#F2650F;--g3:#8F3200;--glow:#FFB070}
 .offer--dark{background:linear-gradient(170deg,#262833 0%,#0E0F14 100%);--g1:#F2F2F5;--g2:#6A6E80;--g3:#1A1B22;--glow:#9AA0B8}
-.offer-visual{position:relative;height:170px;margin:-110px -10px 6px;display:grid;place-items:end center;pointer-events:none}
+.offer-visual{position:relative;height:230px;margin:-125px -10px 14px;display:grid;place-items:end center;pointer-events:none}
 .glyph-wrap{position:relative;display:grid;place-items:end center;height:100%;width:100%}
 .glow{position:absolute;bottom:-6px;left:50%;width:70%;height:40px;transform:translateX(-50%);background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(6px);opacity:.9}
-.bars{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:7px;align-items:flex-end;width:88%;justify-content:space-between}
-.bars i{display:block;width:12%;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,rgba(255,255,255,.85),var(--g1) 30%,var(--g2) 80%,var(--g3));opacity:.85;box-shadow:inset -3px 0 6px rgba(0,0,0,.25),inset 3px 0 6px rgba(255,255,255,.4)}
-.bars i:nth-child(1){height:60px}.bars i:nth-child(2){height:96px}.bars i:nth-child(3){height:44px}.bars i:nth-child(4){height:110px}.bars i:nth-child(5){height:70px}.bars i:nth-child(6){height:52px}
-.glyph{position:relative;display:block;font-family:var(--f-display);font-weight:800;font-size:190px;line-height:.78;transform:rotateY(-20deg) rotateX(6deg);transform-style:preserve-3d;margin-bottom:4px}
-.g-back,.g-front{display:block}
-.g-back{position:absolute;inset:0;color:var(--g3);text-shadow:1px 1px 0 var(--g3),2px 2px 0 var(--g3),3px 3px 0 var(--g3),4px 4px 0 var(--g3),5px 5px 0 var(--g3),6px 6px 0 var(--g3),7px 7px 0 var(--g3),8px 8px 0 var(--g3),9px 9px 0 var(--g3),10px 10px 0 var(--g3),16px 22px 30px rgba(0,0,0,.45)}
-.g-front{position:relative;color:transparent;background:linear-gradient(155deg,#fff 0%,var(--g1) 28%,var(--g2) 62%,var(--g1) 85%,#fff 100%);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;animation:sheen 6s ease-in-out infinite}
-@keyframes sheen{0%,100%{background-position:0% 0%}50%{background-position:100% 100%}}
-@media (prefers-reduced-motion:reduce){.g-front{animation:none}}
+.glyph{position:relative;display:block;height:230px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35));will-change:transform}
 .offer-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .offer-num{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:24px}
 .offer-kicker{margin:0;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.75}
@@ -262,12 +251,8 @@ body.menu-open .burger span:last-child{transform:translateY(-3px) rotate(-45deg)
 .soc:hover{background:#fff;color:var(--blue)}
 .soc svg{width:15px;height:15px}
 .portrait{position:relative;margin-left:auto;width:78%;aspect-ratio:4/5;max-width:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,31,143,.6)}
-.portrait-in{position:absolute;inset:-12% 0;display:grid;place-items:center;background:var(--pg)}
-.portrait-in::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 38%,rgba(255,255,255,.35),transparent 70%),radial-gradient(70% 40% at 50% 100%,rgba(0,0,0,.35),transparent 70%)}
-.portrait-in span{position:relative;font-family:var(--f-display);font-weight:800;font-size:96px;color:rgba(255,255,255,.9);letter-spacing:-.03em}
-.pg-1{--pg:linear-gradient(160deg,#F9C49A 0%,#E07A3E 55%,#8C3A16 100%)}
-.pg-2{--pg:linear-gradient(160deg,#C3CBE0 0%,#6A7696 55%,#252C44 100%)}
-.pg-3{--pg:linear-gradient(160deg,#F1D3BE 0%,#B98266 55%,#5A3424 100%)}
+.portrait{background:var(--blue-soft)}
+.portrait-in{position:absolute;left:0;top:-12%;width:100%;height:124%;max-width:none;object-fit:cover}
 .member-media .squiggle{position:absolute;left:30px;top:96px;margin:0;z-index:2;width:70px}
 .member-body{min-width:0}
 .member-body h3{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,3.6vw,46px);line-height:1;margin:0 0 4px}
@@ -362,7 +347,8 @@ textarea.input{min-height:140px;resize:vertical}
 @media (max-width:560px){
   .step-sub,.row{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
-  .glyph{font-size:160px}
+  .glyph{height:200px}
+  .offer-visual{height:200px;margin-top:-110px}
 }
 </style>
 </head>
@@ -425,7 +411,7 @@ textarea.input{min-height:140px;resize:vertical}
     <aside class="hero-aside">
       <a class="hero-follow" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="in"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></span>Suivez-nous !</a>
       <div class="collab">
-        <div class="avatars" aria-hidden="true"><span class="avatar av-1">VA</span><span class="avatar av-2">DM</span><span class="avatar av-3">NG</span></div>
+        <div class="avatars"><img class="avatar" src="images/av-violaine.webp" alt="Violaine Amiot" width="54" height="54"><img class="avatar" src="images/av-david.webp" alt="David Marin" width="54" height="54"><img class="avatar" src="images/av-nicolas.webp" alt="Nicolas Genaudet" width="54" height="54"></div>
         <div><p class="collab-title">3 Collaborateurs</p><p class="collab-sub">Passionnés &amp; expérimentés</p></div>
       </div>
       <p class="hero-lead">Nous proposons des solutions WordPress sur-mesure pour les entreprises et particuliers souhaitant développer leur présence digitale.</p>
@@ -437,7 +423,7 @@ textarea.input{min-height:140px;resize:vertical}
     <h2 class="sr-only">Nos solutions WordPress</h2>
 
     <article class="offer offer--blue" data-tilt>
-      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="glyph"><span class="g-back">N</span><span class="g-front">N</span></span></div></div>
+      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><img class="glyph" src="images/n-bleu.webp" alt="" width="520" height="744" decoding="async"></div></div>
       <div class="offer-head"><span class="offer-num">1</span><div><p class="offer-kicker">Site one page</p><h3>Nouvelle page</h3></div></div>
       <p class="offer-desc">Créer une page complète et optimisée qui transforme les visiteurs en prospects.</p>
       <ul class="offer-list">
@@ -452,7 +438,7 @@ textarea.input{min-height:140px;resize:vertical}
     </article>
 
     <article class="offer offer--orange" data-tilt>
-      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="glyph"><span class="g-back">N</span><span class="g-front">N</span></span></div></div>
+      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><img class="glyph" src="images/n-orange.webp" alt="" width="520" height="744" decoding="async"></div></div>
       <div class="offer-head"><span class="offer-num">2</span><div><p class="offer-kicker">Refonte de votre site</p><h3>Nouvelle version</h3></div></div>
       <p class="offer-desc">Transformer un site existant en outil commercial performant, efficace et mis en avant.</p>
       <ul class="offer-list">
@@ -469,7 +455,7 @@ textarea.input{min-height:140px;resize:vertical}
     </article>
 
     <article class="offer offer--dark" data-tilt>
-      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="glyph"><span class="g-back">N</span><span class="g-front">N</span></span></div></div>
+      <div class="offer-visual" aria-hidden="true"><div class="glyph-wrap"><span class="glow"></span><img class="glyph" src="images/n-noir.webp" alt="" width="520" height="744" decoding="async"></div></div>
       <div class="offer-head"><span class="offer-num">3</span><div><p class="offer-kicker">Solution sur-mesure</p><h3>Nouvelle dimension</h3></div></div>
       <p class="offer-desc">Créer ou transformer un site web en vitrine digitale capable de rivaliser avec les leaders du marché.</p>
       <ul class="offer-list">
@@ -605,8 +591,7 @@ textarea.input{min-height:140px;resize:vertical}
         <a class="soc" href="mailto:nouvelle-version@mail.com" aria-label="Écrire à Violaine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></a>
         <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de Violaine Amiot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
       </div>
-      <!-- Remplacez .portrait-in par <img src="violaine-amiot.webp" alt="Violaine Amiot, rédactrice web et SEO" width="400" height="500" loading="lazy"> -->
-      <div class="portrait" role="img" aria-label="Portrait de Violaine Amiot"><div class="portrait-in pg-1"><span>VA</span></div></div>
+      <div class="portrait"><img class="portrait-in" src="images/violaine-amiot.webp" alt="Violaine Amiot, rédactrice web et consultante SEO chez Nouvelle Version" width="640" height="843" loading="lazy" decoding="async" style="object-position:50% 20%"></div>
       <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
     </div>
     <div class="member-body">
@@ -624,7 +609,7 @@ textarea.input{min-height:140px;resize:vertical}
         <a class="soc" href="mailto:nouvelle-version@mail.com" aria-label="Écrire à David"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></a>
         <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de David Marin"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
       </div>
-      <div class="portrait" role="img" aria-label="Portrait de David Marin"><div class="portrait-in pg-2"><span>DM</span></div></div>
+      <div class="portrait"><img class="portrait-in" src="images/david-marin.webp" alt="David Marin, webdesigner UX/UI chez Nouvelle Version" width="640" height="823" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
       <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
     </div>
     <div class="member-body">
@@ -642,7 +627,7 @@ textarea.input{min-height:140px;resize:vertical}
         <a class="soc" href="mailto:nouvelle-version@mail.com" aria-label="Écrire à Nicolas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></a>
         <a class="soc" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn de Nicolas Genaudet"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
       </div>
-      <div class="portrait" role="img" aria-label="Portrait de Nicolas Genaudet"><div class="portrait-in pg-3"><span>NG</span></div></div>
+      <div class="portrait"><img class="portrait-in" src="images/nicolas-genaudet.webp" alt="Nicolas Genaudet, développeur WordPress chez Nouvelle Version" width="480" height="480" loading="lazy" decoding="async" style="object-position:40% 50%"></div>
       <svg class="squiggle" viewBox="0 0 110 22" fill="none" aria-hidden="true"><path class="draw" d="M2 16 C12 4, 20 4, 26 14 S40 22, 48 10 S62 2, 70 14 S86 22, 94 10 S104 4, 108 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
     </div>
     <div class="member-body">
@@ -877,7 +862,6 @@ textarea.input{min-height:140px;resize:vertical}
       .from(".collab > div:last-child, .hero-lead",{x:30,opacity:0,stagger:.1,duration:.7},"-=.4")
       .from(".offer",{y:160,opacity:0,rotateX:-25,transformOrigin:"50% 100%",stagger:.14,duration:1.3},"-=.6")
       .from(".glyph",{y:-120,scale:.5,opacity:0,stagger:.14,duration:1.1,ease:"bounce.out"},"-=1.1")
-      .from(".bars i",{scaleY:0,transformOrigin:"50% 100%",stagger:{each:.03,from:"center"},duration:.6,ease:"back.out(2)"},"-=1")
       .from(".offer-list li",{x:-14,opacity:0,stagger:.02,duration:.4},"-=.8");
 
     /* Compteurs */
@@ -890,8 +874,7 @@ textarea.input{min-height:140px;resize:vertical}
     gsap.to(".blob--1",{x:-80,y:60,duration:9,repeat:-1,yoyo:true,ease:"sine.inOut"});
     gsap.to(".blob--2",{x:90,y:-40,duration:11,repeat:-1,yoyo:true,ease:"sine.inOut"});
     gsap.to(".blob--3",{x:-120,y:80,scale:1.3,duration:8,repeat:-1,yoyo:true,ease:"sine.inOut"});
-    $$(".glyph-wrap").forEach(function(g,i){ gsap.to(g,{y:-12,duration:2.6+i*.3,repeat:-1,yoyo:true,ease:"sine.inOut",delay:i*.4}); });
-    $$(".bars").forEach(function(b){ $$("i",b).forEach(function(i,k){ gsap.to(i,{scaleY:gsap.utils.random(.75,1.15),transformOrigin:"50% 100%",duration:gsap.utils.random(1.6,2.8),repeat:-1,yoyo:true,ease:"sine.inOut",delay:2+k*.1}); }); });
+    $$(".glyph-wrap").forEach(function(g,i){ gsap.to(g,{y:-12,duration:2.6+i*.3,repeat:-1,yoyo:true,ease:"sine.inOut",delay:i*.4}); gsap.to(g,{rotate:i%2?2.5:-2.5,duration:3.4+i*.4,repeat:-1,yoyo:true,ease:"sine.inOut"}); });
 
     /* Parallaxe hero au scroll */
     gsap.to(".hero-main",{yPercent:-18,opacity:.4,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"40% top",scrub:true}});
