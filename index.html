@@ -63,7 +63,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -383,7 +383,11 @@
     <h2 class="display h2" id="contact-title" data-split="chars">Contactez-nous</h2>
     <p class="contact-lead reveal">C'est gratuit et sans engagement. Chez Nouvelle Version nous sommes à l'écoute de vos questions, quel que soit le niveau d'avancement de votre besoin ou son envergure.</p>
 
-    <form class="form" id="contact-form" novalidate>
+    <form class="form" id="contact-form" action="contact.php" method="post" novalidate>
+      <noscript><p class="form-msg form-msg--error">Le formulaire nécessite JavaScript. Vous pouvez aussi nous écrire à nouvelle-version@mail.com ou nous appeler au 06 81 90 94 94.</p></noscript>
+      <!-- Anti-robots : champ invisible pour les humains + jeton signé -->
+      <div class="hp" aria-hidden="true"><label for="f-website">Ne pas remplir</label><input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="token" id="f-token" value="">
       <fieldset class="field field--set">
         <legend class="field-head">Quelle solution vous intéresse ? <span>Optionnel</span></legend>
         <div class="chips">
@@ -395,24 +399,24 @@
       <div class="field">
         <div class="field-head">Votre nom <span>Obligatoire</span></div>
         <div class="row">
-          <label class="sr-only" for="f-prenom">Prénom</label><input class="input" id="f-prenom" name="prenom" placeholder="Prénom" autocomplete="given-name" required>
-          <label class="sr-only" for="f-nom">Nom</label><input class="input" id="f-nom" name="nom" placeholder="Nom" autocomplete="family-name" required>
+          <label class="sr-only" for="f-prenom">Prénom</label><input class="input" id="f-prenom" name="prenom" placeholder="Prénom" autocomplete="given-name" maxlength="80" required>
+          <label class="sr-only" for="f-nom">Nom</label><input class="input" id="f-nom" name="nom" placeholder="Nom" autocomplete="family-name" maxlength="80" required>
         </div>
       </div>
       <div class="field">
         <div class="field-head">Vos coordonnées <span>Obligatoire</span></div>
         <div class="row">
-          <label class="sr-only" for="f-tel">Téléphone</label><input class="input" id="f-tel" name="tel" type="tel" placeholder="Téléphone" autocomplete="tel" required>
-          <label class="sr-only" for="f-email">Email</label><input class="input" id="f-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+          <label class="sr-only" for="f-tel">Téléphone</label><input class="input" id="f-tel" name="tel" type="tel" placeholder="Téléphone" autocomplete="tel" inputmode="tel" maxlength="30" required>
+          <label class="sr-only" for="f-email">Email</label><input class="input" id="f-email" name="email" type="email" placeholder="Email" autocomplete="email" maxlength="254" required>
         </div>
       </div>
       <div class="field">
         <div class="field-head"><label for="f-msg">Votre message</label> <span>Obligatoire</span></div>
-        <textarea class="input" id="f-msg" name="message" placeholder="Écrivez votre message ici…" required></textarea>
+        <textarea class="input" id="f-msg" name="message" placeholder="Écrivez votre message ici…" minlength="10" maxlength="5000" required></textarea>
       </div>
       <label class="consent" for="f-rgpd"><input type="checkbox" id="f-rgpd" name="rgpd" required><span>J'accepte que mes données soient utilisées pour traiter ma demande. Plus d'informations sur le traitement de vos données <a href="#confidentialite">ici</a>.</span></label>
-      <p class="form-msg" id="form-msg" role="status" hidden></p>
-      <div><button class="btn btn-orange magnetic" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Envoyer le formulaire</button></div>
+      <p class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></p>
+      <div><button class="btn btn-orange magnetic" type="submit" id="form-submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Envoyer le formulaire</button></div>
     </form>
   </div>
 
@@ -463,6 +467,6 @@
 
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

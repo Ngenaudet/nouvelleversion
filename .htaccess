@@ -1,5 +1,7 @@
 # =====================================================================
-#  Nouvelle Version · configuration Apache (site statique)
+#  Nouvelle Version · configuration Apache (o2switch)
+#  Fonctionne à la racine d'un domaine comme dans un sous-dossier :
+#  aucune règle ne dépend du nom de domaine ni du chemin.
 #  Nécessite : mod_rewrite, mod_headers (recommandés : mod_deflate,
 #  mod_brotli, mod_expires). Chaque bloc est protégé par <IfModule>,
 #  le site reste donc fonctionnel si un module manque.
@@ -12,12 +14,10 @@
 Options -Indexes -MultiViews
 DirectoryIndex index.html
 AddDefaultCharset utf-8
-ServerSignature Off
 FileETag MTime Size
 
-# Pages d'erreur maison (403 servie comme 404 pour ne rien révéler)
-ErrorDocument 404 /404.html
-ErrorDocument 403 /404.html
+# Page 404 : servie par la règle de réécriture plus bas (404.php),
+# ce qui fonctionne quel que soit le dossier d'installation.
 
 # ---------------------------------------------------------------------
 # 2. Types MIME
@@ -33,9 +33,7 @@ ErrorDocument 403 /404.html
 </IfModule>
 
 # ---------------------------------------------------------------------
-# 3. Redirections : HTTPS + domaine canonique (www)
-#    Remplacez www.nouvelle-version.fr par votre domaine réel.
-#    En local (localhost) les règles sont ignorées.
+# 3. Réécritures : HTTPS, URL propres, 404, filtrage
 # ---------------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -48,15 +46,16 @@ ErrorDocument 403 /404.html
   RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1) [NC]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
-  RewriteRule ^ https://www.nouvelle-version.fr%{REQUEST_URI} [R=301,L]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # Forcer www
-  RewriteCond %{HTTP_HOST} ^nouvelle-version\.fr$ [NC]
-  RewriteRule ^ https://www.nouvelle-version.fr%{REQUEST_URI} [R=301,L]
+  # Optionnel : forcer www (décommentez et remplacez le domaine)
+  # RewriteCond %{HTTP_HOST} ^votre-domaine\.fr$ [NC]
+  # RewriteRule ^ https://www.votre-domaine.fr%{REQUEST_URI} [R=301,L]
 
-  # /index.html -> / (évite le contenu dupliqué)
-  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-  RewriteRule ^index\.html$ / [R=301,L]
+  # .../index.html -> .../ (évite le contenu dupliqué)
+  RewriteCond %{THE_REQUEST} \s[^?\s]*/index\.html[\s?] [NC]
+  RewriteCond %{REQUEST_URI} ^(.*/)index\.html$ [NC]
+  RewriteRule ^ %1 [R=301,L]
 
   # Requêtes manifestement malveillantes (injections courantes)
   RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
@@ -71,8 +70,13 @@ ErrorDocument 403 /404.html
   RewriteCond %{REQUEST_URI} !^/\.well-known/
   RewriteRule (^|/)\. - [F,L]
 
-  # Dossier des sources d'origine (non utilisé par la page)
-  RewriteRule ^assets/ - [F,L]
+  # Dossiers privés : code PHP / données (app) et sources d'origine (assets)
+  RewriteRule ^(app|assets)(/|$) - [F,L]
+
+  # URL inexistante -> page 404 maison (chemin relatif à ce dossier)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ 404.php [L]
 </IfModule>
 
 # ---------------------------------------------------------------------
@@ -87,6 +91,18 @@ ErrorDocument 403 /404.html
     Deny from all
   </IfModule>
 </FilesMatch>
+# PHP : seuls les deux points d'entrée publics peuvent être exécutés
+<FilesMatch "\.(php|phtml|phar|php\d)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+<FilesMatch "^(contact|404)\.php$">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+</FilesMatch>
+
 # security.txt doit rester lisible
 <Files "security.txt">
   <IfModule mod_authz_core.c>
@@ -126,8 +142,8 @@ ErrorDocument 403 /404.html
   </FilesMatch>
 
   # ---- Cache navigateur ----
-  # HTML : toujours revalidé (mises à jour visibles immédiatement)
-  <FilesMatch "\.html$">
+  # HTML et PHP : toujours revalidés
+  <FilesMatch "\.(html|php)$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
   # CSS / JS : versionnés par ?v=… dans index.html -> 1 an

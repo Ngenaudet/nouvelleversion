@@ -19,3 +19,7 @@ coverage/
 artifact.html
 nouvelle-version-site.zip
 nouvelleversion.bundle
+
+# Formulaire PHP : secrets et données d'exécution
+app/config.local.php
+app/storage/

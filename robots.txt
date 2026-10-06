@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
-Disallow: /404.html
+Disallow: /*assets/
+Disallow: /*app/
+Disallow: /*404
+Disallow: /*contact.php
 
 Sitemap: https://www.nouvelle-version.fr/sitemap.xml

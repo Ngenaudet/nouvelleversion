@@ -44,22 +44,101 @@
     });
   });
 
-  /* ---------- Formulaire (statique : à brancher sur votre outil) ---------- */
-  var form = $("#contact-form"), msg = $("#form-msg");
+  /* ---------- Formulaire de contact (envoi via contact.php) ---------- */
+  var form = $("#contact-form"), msg = $("#form-msg"), submitBtn = $("#form-submit"), tokenInput = $("#f-token");
+  var endpoint = form.getAttribute("action") || "contact.php";
+  var tokenPromise = null;
+
+  function fetchToken(){
+    if(!tokenPromise){
+      tokenPromise = fetch(endpoint + "?action=token", {headers:{"Accept":"application/json","X-Requested-With":"fetch"}, credentials:"same-origin", cache:"no-store"})
+        .then(function(r){ if(!r.ok) throw new Error("token"); return r.json(); })
+        .then(function(d){ tokenInput.value = d.token || ""; return tokenInput.value; })
+        .catch(function(err){ tokenPromise = null; throw err; });
+    }
+    return tokenPromise;
+  }
+  // Le jeton est demandé dès que le visiteur commence à remplir le formulaire
+  form.addEventListener("focusin", function(){ fetchToken().catch(function(){}); }, {once:true});
+
+  function showMessage(text, type){
+    msg.hidden = false; msg.textContent = text;
+    msg.className = "form-msg" + (type ? " form-msg--" + type : "");
+    if(hasGsap) gsap.fromTo(msg,{y:12,opacity:0},{y:0,opacity:1,duration:.5,ease:"back.out(2)"});
+  }
+  function clearErrors(){
+    $$(".field-error", form).forEach(function(el){ el.remove(); });
+    $$(".is-invalid", form).forEach(function(el){ el.classList.remove("is-invalid"); el.removeAttribute("aria-invalid"); el.removeAttribute("aria-describedby"); });
+  }
+  function fieldError(name, text){
+    var input = form.elements[name]; if(!input) return null;
+    if(input.length && !input.tagName) input = input[0];
+    var err = document.createElement("span");
+    err.className = "field-error"; err.id = "err-" + name; err.textContent = text;
+    if(input.type === "checkbox"){ input.closest(".consent").querySelector("span").appendChild(err); }
+    else { input.classList.add("is-invalid"); input.insertAdjacentElement("afterend", err); }
+    input.setAttribute("aria-invalid","true"); input.setAttribute("aria-describedby", err.id);
+    return input;
+  }
+  function validateLocally(){
+    var errors = {}, v = function(n){ return (form.elements[n].value || "").trim(); };
+    if(!v("prenom")) errors.prenom = "Indiquez votre prénom.";
+    if(!v("nom")) errors.nom = "Indiquez votre nom.";
+    if((v("tel").replace(/\D/g,"")).length < 6) errors.tel = "Indiquez un numéro de téléphone valide.";
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email"))) errors.email = "Indiquez une adresse e-mail valide.";
+    if(v("message").length < 10) errors.message = "Votre message doit contenir au moins 10 caractères.";
+    if(!form.elements.rgpd.checked) errors.rgpd = "Merci d'accepter le traitement de vos données.";
+    return errors;
+  }
+  function showErrors(errors){
+    var first = null;
+    Object.keys(errors).forEach(function(k){ var el = fieldError(k, errors[k]); if(!first) first = el; });
+    if(hasGsap) gsap.fromTo(form,{x:-8},{x:0,duration:.5,ease:"elastic.out(1,.3)"});
+    if(first) first.focus();
+  }
+  function setBusy(busy){
+    submitBtn.setAttribute("aria-busy", String(busy)); submitBtn.disabled = busy;
+  }
+
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    var invalid = $$("[required]", form).filter(function(f){ return f.type==="checkbox" ? !f.checked : !f.value.trim() || (f.type==="email" && !/^\S+@\S+\.\S+$/.test(f.value)); });
-    $$(".input", form).forEach(function(f){ f.style.borderColor = ""; });
-    if(invalid.length){
-      msg.hidden = false; msg.textContent = "Il manque " + invalid.length + " information(s) : vérifiez les champs surlignés et la case de consentement.";
-      invalid.forEach(function(f){ if(f.classList.contains("input")) f.style.borderColor = "var(--orange-deep)"; });
-      if(hasGsap) gsap.fromTo(form,{x:-8},{x:0,duration:.5,ease:"elastic.out(1,.3)"});
-      invalid[0].focus(); return;
+    clearErrors();
+    var errors = validateLocally();
+    if(Object.keys(errors).length){
+      showMessage("Il manque " + Object.keys(errors).length + " information(s) : vérifiez les champs indiqués.", "error");
+      showErrors(errors); return;
     }
-    msg.hidden = false; msg.textContent = "Merci " + $("#f-prenom").value.trim() + " ! Votre demande est prête. Nous revenons vers vous sous 48h.";
-    if(hasGsap) gsap.from(msg,{y:16,opacity:0,duration:.6,ease:"back.out(2)"});
-    form.reset();
+    setBusy(true);
+    showMessage("Envoi en cours…");
+    fetchToken()
+      .then(function(){
+        return fetch(endpoint, {method:"POST", body:new FormData(form), credentials:"same-origin",
+          headers:{"Accept":"application/json","X-Requested-With":"fetch"}});
+      })
+      .then(function(r){ return r.json().catch(function(){ return {ok:false, message:"Réponse inattendue du serveur."}; }); })
+      .then(function(d){
+        if(d.ok){
+          var prenom = form.elements.prenom.value.trim();
+          form.reset();
+          showMessage(d.message || ("Merci " + prenom + " ! Votre demande est bien partie."), "ok");
+        } else {
+          showMessage(d.message || "L'envoi a échoué.", "error");
+          if(d.errors && Object.keys(d.errors).length) showErrors(d.errors);
+        }
+      })
+      .catch(function(){
+        showMessage("Impossible de joindre le serveur. Réessayez dans un instant, ou écrivez-nous à nouvelle-version@mail.com.", "error");
+      })
+      .then(function(){
+        // Un jeton ne sert qu'une fois : on en redemande un pour le prochain envoi
+        tokenPromise = null; tokenInput.value = ""; setBusy(false);
+      });
   });
+
+  // Retour du repli sans JavaScript (contact.php?…#contact)
+  var status = new URLSearchParams(location.search).get("contact");
+  if(status === "ok") showMessage("Merci ! Votre demande est bien partie. Nous revenons vers vous sous 48 h.", "ok");
+  else if(status === "erreur") showMessage("L'envoi n'a pas abouti. Merci de réessayer.", "error");
 
   /* ---------- Menu mobile ---------- */
   var burgers = $$(".burger"), menu = $("#mobile-menu"), menuTl = null;
@@ -143,7 +222,7 @@
     $$(".glyph-wrap").forEach(function(g,i){ gsap.to(g,{y:-10,duration:2.6+i*.3,repeat:-1,yoyo:true,ease:"sine.inOut",delay:i*.4}); gsap.to(g,{rotate:i%2?1.5:-1.5,duration:3.4+i*.4,repeat:-1,yoyo:true,ease:"sine.inOut"}); });
 
     /* Parallaxe hero au scroll */
-    gsap.to(".hero-main",{yPercent:-12,opacity:.5,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"40% top",scrub:true}});
+    gsap.to(".hero-main",{yPercent:-12,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"40% top",scrub:true}});
     gsap.to(".hero-aside",{yPercent:-20,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"40% top",scrub:true}});
 
     /* Tilt 3D des cartes + parallaxe souris */
@@ -221,8 +300,14 @@
 
     /* ===== À propos : mots qui s'allument au scroll ===== */
     if(scrub){
-      gsap.set(scrub._parts,{opacity:.28});
-      gsap.to(scrub._parts,{opacity:1,stagger:.1,ease:"none",scrollTrigger:{trigger:scrub,start:"top 80%",end:"bottom 45%",scrub:true}});
+      // Les mots s'allument au fil du scroll et restent allumés (pas de retour en arrière)
+      var lit = 0, words = scrub._parts;
+      gsap.set(words,{opacity:.28});
+      var lightUpTo = function(n){ if(n > lit){ gsap.to(words.slice(lit, n),{opacity:1,duration:.35,stagger:.025,overwrite:true}); lit = n; } };
+      ScrollTrigger.create({trigger:scrub,start:"top 85%",end:"bottom 55%",
+        onUpdate:function(st){ lightUpTo(Math.ceil(st.progress * words.length)); },
+        onLeave:function(){ lightUpTo(words.length); },
+        onRefresh:function(st){ if(st.progress > 0) lightUpTo(Math.ceil(st.progress * words.length)); }});
       gsap.from(scrub,{y:60,duration:1,ease:"none",scrollTrigger:{trigger:".about",start:"top bottom",end:"center center",scrub:true}});
     }
 
