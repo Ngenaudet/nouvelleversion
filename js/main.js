@@ -257,7 +257,9 @@
     });
 
     /* ===== Titres en lettres ===== */
+    // (les noms de l'équipe ont leur propre animation dans la timeline .member)
     $$("[data-split='chars']").forEach(function(h){
+      if(h.closest(".member")) return;
       gsap.from(h._parts,{yPercent:120,rotate:12,opacity:0,stagger:.025,duration:.9,ease:"expo.out",scrollTrigger:{trigger:h,start:"top 85%"}});
     });
     $$(".section .eyebrow, .faq .eyebrow, .about .eyebrow").forEach(function(e){
