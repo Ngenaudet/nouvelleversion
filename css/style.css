@@ -1,4 +1,8 @@
 /* Nouvelle Version · feuille de styles principale */
+/* Polices auto-hébergées (SIL Open Font License, voir fonts/) */
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-display:swap;font-weight:200 800;font-stretch:75% 100%;src:url(../fonts/bricolage-grotesque-latin.woff2) format("woff2-variations"),url(../fonts/bricolage-grotesque-latin.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-style:normal;font-display:swap;font-weight:200 800;src:url(../fonts/manrope-latin.woff2) format("woff2-variations"),url(../fonts/manrope-latin.woff2) format("woff2")}
+
 /* Layout: hero bleu plein cadre → cartes offres à cheval → sections blanches rythmées par des bandeaux marquee inclinés → footer bleu */
 :root{
   --blue:#2D4EF5; --blue-deep:#1C38D8; --blue-ink:#0F1F8F; --blue-soft:#EEF1FF; --blue-line:#CCD5FF;
@@ -314,3 +318,24 @@ textarea.input{min-height:140px;resize:vertical}
   .foot-grid{grid-template-columns:1fr}
   .offer-panel{margin-top:210px}
 }
+
+/* ---------- Utilitaires (anciens styles inline) ---------- */
+.field--set{border:0;margin:0;padding:0;min-width:0}
+legend.field-head{width:100%;display:flex}
+.h2--sm{font-size:clamp(36px,4.4vw,56px)}
+.faq-item.is-open .faq-a{height:auto}
+.star--1{left:22%;top:46%}.star--2{left:50%;top:38%}.star--3{left:62%;top:70%}.star--4{left:40%;top:60%}
+.marquee-band--spaced{margin-top:clamp(50px,7vw,90px)}
+.portrait-in[data-pos="top"]{object-position:50% 20%}
+.portrait-in[data-pos="upper"]{object-position:50% 30%}
+.portrait-in[data-pos="left"]{object-position:40% 50%}
+.soc--light{width:30px;height:30px;background:#fff;color:var(--blue)}
+
+/* ---------- Page 404 ---------- */
+.error-page{min-height:100vh;min-height:100dvh;display:grid;place-items:center;text-align:center;color:#fff;padding:40px var(--gutter);
+  background:radial-gradient(60% 55% at 100% 80%,rgba(178,200,255,.9) 0%,rgba(70,110,255,0) 70%),linear-gradient(168deg,#1A45FF 0%,#3561FF 100%)}
+.error-page .logo{display:inline-flex;margin:0 auto 40px;padding:18px 22px;border-radius:18px}
+.error-page .logo-mark,.error-page .logo-word{height:48px}
+.error-page .error-code{margin:0;font-family:var(--f-display);font-stretch:86%;font-weight:800;font-size:clamp(120px,22vw,260px);line-height:.8;letter-spacing:-.04em;margin:0}
+.error-page p{max-width:40ch;margin:18px auto 30px;font-size:18px;color:rgba(255,255,255,.85)}
+.error-page h1{color:#fff;max-width:16ch;margin:24px auto 0}

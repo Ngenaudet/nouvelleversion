@@ -1,0 +1,4 @@
+Contact: mailto:nouvelle-version@mail.com
+Expires: 2027-10-06T00:00:00.000Z
+Preferred-Languages: fr, en
+Canonical: https://www.nouvelle-version.fr/.well-known/security.txt

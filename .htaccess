@@ -1,0 +1,176 @@
+# =====================================================================
+#  Nouvelle Version · configuration Apache (site statique)
+#  Nécessite : mod_rewrite, mod_headers (recommandés : mod_deflate,
+#  mod_brotli, mod_expires). Chaque bloc est protégé par <IfModule>,
+#  le site reste donc fonctionnel si un module manque.
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# 1. Bases
+# ---------------------------------------------------------------------
+# Pas de listing des dossiers, pas de négociation de contenu implicite
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset utf-8
+ServerSignature Off
+FileETag MTime Size
+
+# Pages d'erreur maison (403 servie comme 404 pour ne rien révéler)
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+# ---------------------------------------------------------------------
+# 2. Types MIME
+# ---------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp                webp
+  AddType image/svg+xml             svg svgz
+  AddType font/woff2                woff2
+  AddType font/woff                 woff
+  AddType application/manifest+json webmanifest
+  AddType text/plain                txt
+  AddCharset utf-8 .html .css .js .json .svg .txt .xml .webmanifest
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 3. Redirections : HTTPS + domaine canonique (www)
+#    Remplacez www.nouvelle-version.fr par votre domaine réel.
+#    En local (localhost) les règles sont ignorées.
+# ---------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Méthodes HTTP : un site statique n'a besoin que de GET, HEAD et POST
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD|POST)$ [NC]
+  RewriteRule .* - [R=405,L]
+
+  # Forcer HTTPS (compatible proxy / CDN via X-Forwarded-Proto)
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1) [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://www.nouvelle-version.fr%{REQUEST_URI} [R=301,L]
+
+  # Forcer www
+  RewriteCond %{HTTP_HOST} ^nouvelle-version\.fr$ [NC]
+  RewriteRule ^ https://www.nouvelle-version.fr%{REQUEST_URI} [R=301,L]
+
+  # /index.html -> / (évite le contenu dupliqué)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # Requêtes manifestement malveillantes (injections courantes)
+  RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+  RewriteCond %{QUERY_STRING} (\.\./|%2e%2e%2f|%2e%2e/) [NC,OR]
+  RewriteCond %{QUERY_STRING} (base64_encode|base64_decode)\( [NC,OR]
+  RewriteCond %{QUERY_STRING} (GLOBALS|_REQUEST)(=|\[|%[0-9A-Z]{0,2}) [NC,OR]
+  RewriteCond %{QUERY_STRING} (union.*select|concat\(|information_schema) [NC,OR]
+  RewriteCond %{QUERY_STRING} (etc/passwd|proc/self/environ|boot\.ini) [NC]
+  RewriteRule .* - [F,L]
+
+  # Fichiers et dossiers cachés (.git, .env…) sauf /.well-known/
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule (^|/)\. - [F,L]
+
+  # Dossier des sources d'origine (non utilisé par la page)
+  RewriteRule ^assets/ - [F,L]
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 4. Fichiers sensibles : jamais servis
+# ---------------------------------------------------------------------
+<FilesMatch "(^\.|\.(md|bundle|zip|tar|gz|log|sh|bak|old|orig|swp|sql|ini|env|conf|lock|dist|yml|yaml)$|^(package(-lock)?\.json|composer\.(json|lock)|README|LICENSE)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+# security.txt doit rester lisible
+<Files "security.txt">
+  <IfModule mod_authz_core.c>
+    Require all granted
+  </IfModule>
+</Files>
+
+# ---------------------------------------------------------------------
+# 5. En-têtes de sécurité
+# ---------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # HTTPS obligatoire pendant 1 an (ajoutez "; preload" une fois le
+  # domaine inscrit sur hstspreload.org)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on' || %{HTTP:X-Forwarded-Proto} == 'https'"
+
+  # Content Security Policy : tout est auto-hébergé (polices, GSAP, images)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; worker-src 'none'; upgrade-insecure-requests"
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), usb=(), xr-spatial-tracking=(), browsing-topics=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  # Ancien filtre XSS des navigateurs : désactivé (recommandation OWASP)
+  Header always set X-XSS-Protection "0"
+
+  # Ne rien révéler sur le serveur
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+
+  # Polices : chargées en CORS par le preload
+  <FilesMatch "\.(woff2?)$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Cross-Origin-Resource-Policy "cross-origin"
+  </FilesMatch>
+
+  # ---- Cache navigateur ----
+  # HTML : toujours revalidé (mises à jour visibles immédiatement)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  # CSS / JS : versionnés par ?v=… dans index.html -> 1 an
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Polices : 1 an
+  <FilesMatch "\.(woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Images : 30 jours
+  <FilesMatch "\.(webp|jpe?g|png|gif|svg|ico|avif)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # Fichiers de référencement : 1 jour
+  <FilesMatch "\.(txt|xml)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 6. Compression
+# ---------------------------------------------------------------------
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml application/javascript text/javascript application/json application/ld+json application/xml image/svg+xml application/manifest+json
+</IfModule>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json application/ld+json application/xml image/svg+xml application/manifest+json
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 7. Expiration (secours si mod_headers absent)
+# ---------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                     "access plus 1 week"
+  ExpiresByType text/html            "access plus 0 seconds"
+  ExpiresByType text/css             "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript      "access plus 1 year"
+  ExpiresByType font/woff2           "access plus 1 year"
+  ExpiresByType image/webp           "access plus 1 month"
+  ExpiresByType image/svg+xml        "access plus 1 month"
+  ExpiresByType image/png            "access plus 1 month"
+  ExpiresByType image/jpeg           "access plus 1 month"
+</IfModule>
