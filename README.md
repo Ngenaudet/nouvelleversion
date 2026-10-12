@@ -51,6 +51,32 @@ Protections : POST uniquement, contrôle de l’origine, jeton signé à usage u
 
 ### Mise en ligne sur o2switch
 
+#### Erreur 403 : « Server unable to read htaccess file »
+
+Cette erreur survient avant la lecture des règles du `.htaccess` : Apache
+ne peut pas lire ce fichier ou traverser un dossier du chemin du site.
+Modifier `index.html` ou supprimer les protections du `.htaccess` ne la corrige pas.
+
+Dans le gestionnaire de fichiers cPanel, activez l'affichage des fichiers cachés,
+puis réglez les permissions du dossier racine du site sur **755**, celles de
+`.htaccess` et `app/.htaccess` sur **644**. Vérifiez aussi que les dossiers parents
+sont traversables par Apache (sur un hébergement mutualisé, demandez à o2switch
+de vérifier les permissions et le propriétaire du compte si nécessaire).
+
+Avec un terminal SSH, depuis le dossier qui contient `index.html` :
+
+```sh
+chmod 755 . app .well-known css fonts images js js/vendor
+chmod 644 .htaccess app/.htaccess index.html 404.html 404.php contact.php
+```
+
+Ne passez pas le site en `777` et n'appliquez pas de changement récursif aux
+secrets (`app/config.local.php`), au stockage privé ou au dossier `.git`.
+Rechargez ensuite le site. Si l'erreur reste présente, consultez le journal
+Apache dans cPanel et faites vérifier par l'hébergeur le chemin indiqué,
+son propriétaire et ses ACL. Le second message concernant `ErrorDocument`
+peut être une conséquence du même défaut d'accès.
+
 1. Envoyez tout le dépôt dans le dossier voulu (FTP ou Git Version Control de cPanel). Le site fonctionne à la racine d’un domaine comme dans un sous-dossier.
 2. Dans cPanel › Comptes de messagerie, créez l’adresse d’expédition (par ex. `no-reply@votre-domaine.fr`) et reportez-la dans `'from'` de `app/config.php`. Elle doit appartenir au domaine du site, sinon les messages partent en spam.
 3. Vérifiez `'to'` (adresse qui reçoit les demandes).
