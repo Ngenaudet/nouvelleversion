@@ -327,13 +327,7 @@
         .from($$(".role, .bio",m),{y:20,opacity:0,stagger:.1,duration:.7},"-=.6")
         .from($(".skills",m),{y:30,opacity:0,duration:.7,ease:"power3.out"},"-=.4")
         .from($$(".skills li",m),{scale:.4,opacity:0,stagger:.07,duration:.5,ease:"back.out(2.5)"},"-=.3");
-      gsap.to($(".portrait-in",m),{yPercent:10,ease:"none",scrollTrigger:{trigger:m,start:"top bottom",end:"bottom top",scrub:true}});
       gsap.to($(".media-panel",m),{y:-30,ease:"none",scrollTrigger:{trigger:m,start:"top bottom",end:"bottom top",scrub:true}});
-      if(fine){
-        var por = $(".portrait",m);
-        por.addEventListener("pointermove",function(e){var r=por.getBoundingClientRect();gsap.to(por,{rotationY:((e.clientX-r.left)/r.width-.5)*14,rotationX:-((e.clientY-r.top)/r.height-.5)*14,transformPerspective:800,duration:.5});});
-        por.addEventListener("pointerleave",function(){gsap.to(por,{rotationY:0,rotationX:0,duration:.8,ease:"elastic.out(1,.4)"});});
-      }
     });
 
     /* ===== Contact ===== */
