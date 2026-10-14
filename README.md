@@ -11,7 +11,7 @@ Site de l’agence **Nouvelle Version**, réalisé à partir de la maquette cré
 
 La page d’accueil est intégrée (`index.html`, styles dans `css/style.css`) :
 
-- Hero, offres en cartes sur desktop et slider sur tablette/mobile, méthode centrée et épinglée sur desktop/tablette et cartes sticky sur mobile, CTA, à propos, équipe, contact, FAQ, footer.
+- Hero, offres en cartes sur desktop, slider sur tablette et pile de cartes sur mobile, méthode centrée et épinglée sur desktop/tablette et cartes sticky sur mobile, CTA, à propos, équipe, contact, FAQ, footer.
 - SEO : balises meta, Open Graph, données structurées JSON-LD (ProfessionalService + FAQPage).
 - Animations GSAP + ScrollTrigger, désactivées si l’utilisateur demande moins d’animations.
 - Images optimisées en WebP dans `images/`, sources d’origine dans `assets/`.

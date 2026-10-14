@@ -45,10 +45,10 @@
   /* ---------- Slider des offres : swipe, boutons et clavier ---------- */
   var offersTrack = $("#offers-track"), offerCards = $$(".offer", offersTrack);
   var offersControls = $(".offers-controls"), offerPrev = $("[data-offer-prev]"), offerNext = $("[data-offer-next]");
-  var sliderMedia = window.matchMedia("(max-width:1024px)"), currentOffer = 0;
+  var sliderMedia = window.matchMedia("(min-width:601px) and (max-width:1024px)"), currentOffer = 0;
   var reducedMotion = window.matchMedia("(prefers-reduced-motion:reduce)");
   function updateOffers(){
-    var left = offersTrack.getBoundingClientRect().left;
+    var left = offersTrack.getBoundingClientRect().left + (parseFloat(window.getComputedStyle(offersTrack).paddingLeft) || 0);
     if(offersTrack.scrollLeft >= offersTrack.scrollWidth-offersTrack.clientWidth-2 && offersTrack.scrollLeft > 0){
       currentOffer = offerCards.length-1;
     } else {
@@ -62,7 +62,7 @@
   }
   function moveOffer(index){
     index = Math.max(0, Math.min(offerCards.length-1,index));
-    var offset = offerCards[index].getBoundingClientRect().left - offersTrack.getBoundingClientRect().left;
+    var offset = offerCards[index].getBoundingClientRect().left - offersTrack.getBoundingClientRect().left - (parseFloat(window.getComputedStyle(offersTrack).paddingLeft) || 0);
     offersTrack.scrollTo({left:offersTrack.scrollLeft+offset,behavior:reducedMotion.matches ? "instant" : "smooth"});
   }
   function setSlider(){
@@ -247,7 +247,7 @@
     });
 
     /* ===== Contact ===== */
-    gsap.from(".contact-iframe",{y:60,opacity:0,duration:.65,ease:"expo.out",scrollTrigger:{trigger:".contact-iframe",start:"top 80%"}});
+    gsap.from(".contact-embed",{y:60,opacity:0,duration:.65,ease:"expo.out",scrollTrigger:{trigger:".contact-embed",start:"top 80%"}});
 
     /* ===== FAQ ===== */
     gsap.from(".faq-item",{y:40,opacity:0,stagger:.05,duration:.455,ease:"power3.out",scrollTrigger:{trigger:".faq-list",start:"top 85%"}});
@@ -290,9 +290,11 @@
       if(ctx.conditions.wide) section.classList.add("method-is-pinned");
       measure();
       ScrollTrigger.addEventListener("refreshInit",measure);
+      var fills = steps.map(function(step){return $(".num-f",step);});
       if(ctx.conditions.wide){
-        gsap.set(steps,{autoAlpha:0});
-        gsap.set(steps[0],{autoAlpha:1});
+        // Les cartes entrent dans un cadre masqué, puis recouvrent complètement la précédente.
+        steps.forEach(function(step,i){gsap.set(step,{autoAlpha:1,yPercent:i === 0 ? 0 : 100,zIndex:i+1});});
+        gsap.set(fills,{clipPath:"inset(100% 0% 0% 0%)"});
         var activeStep = -1;
         function activate(index){
           if(index === activeStep) return;
@@ -303,19 +305,24 @@
           trigger:stage,
           start:function(){return "top " + Math.max(80,(window.innerHeight-stage.offsetHeight)/2) + "px";},
           end:function(){return "+=" + Math.max(900,window.innerHeight*1.6);},
-          pin:true,scrub:.15,invalidateOnRefresh:true,
-          onUpdate:function(st){activate(st.progress < 3/17 ? 0 : st.progress < 10/17 ? 1 : 2);},
-          onRefresh:function(st){activate(st.progress < 3/17 ? 0 : st.progress < 10/17 ? 1 : 2);}
+          pin:true,scrub:.15,
+          onUpdate:function(st){activate(st.progress < 1.25/2.6 ? 0 : st.progress < 2.25/2.6 ? 1 : 2);},
+          onRefresh:function(st){activate(st.progress < 1.25/2.6 ? 0 : st.progress < 2.25/2.6 ? 1 : 2);}
         }});
-        methodTl.to({}, {duration:.3});
+        methodTl.to(fills[0],{clipPath:"inset(0% 0% 0% 0%)",duration:.35,ease:"none"},0)
+          .to({}, {duration:.25},.35);
         steps.slice(1).forEach(function(step,i){
-          var at = .3+i*.7;
-          methodTl.set(steps[i],{autoAlpha:0},at)
-            .fromTo(step,{autoAlpha:0,y:24},{autoAlpha:1,y:0,duration:.2,ease:"power2.out"},at)
-            .to({}, {duration:.5},at+.2);
+          var at = .6+i;
+          methodTl.to(step,{yPercent:0,duration:.65,ease:"power2.inOut"},at)
+            .to(fills[i+1],{clipPath:"inset(0% 0% 0% 0%)",duration:.5,ease:"none"},at)
+            .set(steps[i],{autoAlpha:0},at+.65)
+            .to({}, {duration:.35},at+.65);
         });
+        gsap.from($(".step-card",steps[0]),{y:40,opacity:0,duration:.5,ease:"power3.out",scrollTrigger:{trigger:stage,start:"top 85%"}});
       } else {
         steps.forEach(function(step,i){
+          gsap.fromTo(fills[i],{clipPath:"inset(100% 0% 0% 0%)"},{clipPath:"inset(0% 0% 0% 0%)",ease:"none",scrollTrigger:{trigger:step,start:"top 85%",end:"top 25%",scrub:.2}});
+          gsap.from($(".step-card",step),{y:32,opacity:0,duration:.45,ease:"power3.out",scrollTrigger:{trigger:step,start:"top 85%"}});
           if(i === 0) return;
           ScrollTrigger.create({trigger:step,start:"top 89px",end:"bottom top",
             onEnter:function(){gsap.set(steps[i-1],{autoAlpha:0});steps[i-1].inert=true;},
