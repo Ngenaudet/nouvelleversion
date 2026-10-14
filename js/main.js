@@ -303,10 +303,6 @@
         section.style.removeProperty("--steps-height");
         section.style.removeProperty("--mobile-step-height");
         var height = Math.ceil(Math.max.apply(null, steps.map(function(step){return step.offsetHeight;})));
-        if(ctx.conditions.wide){
-          var stepGap = parseFloat(window.getComputedStyle(steps[0]).getPropertyValue("--step-gap")) || 26;
-          height += stepGap * (steps.length-1);
-        }
         section.style.setProperty(ctx.conditions.wide ? "--steps-height" : "--mobile-step-height",height+"px");
       }
       if(ctx.conditions.wide) section.classList.add("method-is-pinned");
@@ -314,8 +310,8 @@
       ScrollTrigger.addEventListener("refreshInit",measure);
       var fills = steps.map(function(step){return $(".num-f",step);});
       if(ctx.conditions.wide){
-        // Les fonds restent visibles en escalier ; seul le contenu recouvert disparaît.
-        steps.forEach(function(step,i){gsap.set(step,{autoAlpha:1,yPercent:i === 0 ? 0 : 100,zIndex:i+1});});
+        // Les prochaines cartes restent masquées jusqu'au début de leur entrée.
+        steps.forEach(function(step,i){gsap.set(step,{autoAlpha:i === 0 ? 1 : 0,yPercent:i === 0 ? 0 : 100,zIndex:i+1});});
         gsap.set(fills,{clipPath:"inset(100% 0% 0% 0%)"});
         var activeStep = -1;
         function activate(index){
@@ -336,7 +332,8 @@
         steps.slice(1).forEach(function(step,i){
           var at = .6+i;
           var coveredContent = [$(".step-num",steps[i])].concat($$(".step-card > *",steps[i]));
-          methodTl.to(step,{yPercent:0,duration:.65,ease:"power2.inOut"},at)
+          methodTl.set(step,{autoAlpha:1},at)
+            .to(step,{yPercent:0,duration:.65,ease:"power2.inOut"},at)
             .set(coveredContent,{autoAlpha:0},at+.65)
             // Le chiffre se remplit une fois la nouvelle carte entièrement visible.
             .fromTo(fills[i+1],{clipPath:"inset(100% 0% 0% 0%)"},
