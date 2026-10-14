@@ -187,8 +187,8 @@
   .method-is-pinned .step:not(:first-child){visibility:hidden}
   .method-is-pinned .method-stage{position:relative}
   .step-num{position:relative;font-family:var(--f-display);font-weight:400;font-size:clamp(64px,7.4vw,118px);line-height:1.1;letter-spacing:-.04em;user-select:none;white-space:nowrap}
-  .num-o{display:block;color:var(--blue-line);-webkit-text-stroke:2px var(--blue-line)}
-  .num-f{position:absolute;inset:0;display:block;color:var(--blue);-webkit-text-stroke:2px var(--blue);clip-path:inset(0 0 0 0);will-change:clip-path}
+  .num-o{display:block;color:var(--paper);-webkit-text-stroke:2px var(--blue-line)}
+  .num-f{position:absolute;inset:0;display:block;color:var(--blue);-webkit-text-stroke:2px var(--blue);clip-path:inset(-3px);will-change:clip-path}
   .step-card{background:var(--blue-soft);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px);min-width:0}
   .step-card h3{font-family:var(--f-display);font-weight:400;font-size:clamp(17px,1.6vw,22px);line-height:1.3;margin:0 0 20px}
   .step-sub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}

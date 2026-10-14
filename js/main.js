@@ -324,10 +324,10 @@
           start:function(){return "top " + Math.max(80,(window.innerHeight-stage.offsetHeight)/2) + "px";},
           end:function(){return "+=" + Math.max(900,window.innerHeight*1.6);},
           pin:true,scrub:.15,
-          onUpdate:function(st){activate(st.progress < 1.25/2.6 ? 0 : st.progress < 2.25/2.6 ? 1 : 2);},
-          onRefresh:function(st){activate(st.progress < 1.25/2.6 ? 0 : st.progress < 2.25/2.6 ? 1 : 2);}
+          onUpdate:function(st){activate(st.progress < 1.25/2.85 ? 0 : st.progress < 2.25/2.85 ? 1 : 2);},
+          onRefresh:function(st){activate(st.progress < 1.25/2.85 ? 0 : st.progress < 2.25/2.85 ? 1 : 2);}
         }});
-        methodTl.to(fills[0],{clipPath:"inset(0% 0% 0% 0%)",duration:.35,ease:"none"},0)
+        methodTl.to(fills[0],{clipPath:"inset(-3px -3px -3px -3px)",duration:.35,ease:"none"},0)
           .to({}, {duration:.25},.35);
         steps.slice(1).forEach(function(step,i){
           var at = .6+i;
@@ -337,12 +337,14 @@
             .set(coveredContent,{autoAlpha:0},at+.65)
             // Le chiffre se remplit une fois la nouvelle carte entièrement visible.
             .fromTo(fills[i+1],{clipPath:"inset(100% 0% 0% 0%)"},
-              {clipPath:"inset(0% 0% 0% 0%)",duration:.35,ease:"none",immediateRender:false},at+.65);
+              {clipPath:"inset(-3px -3px -3px -3px)",duration:.35,ease:"none",immediateRender:false},at+.65);
         });
+        // Garder le dernier chiffre entièrement rempli avant de libérer la section.
+        methodTl.to({}, {duration:.25});
         gsap.from($(".step-card",steps[0]),{y:40,opacity:0,duration:.5,ease:"power3.out",scrollTrigger:{trigger:stage,start:"top 85%"}});
       } else {
         steps.forEach(function(step,i){
-          gsap.fromTo(fills[i],{clipPath:"inset(100% 0% 0% 0%)"},{clipPath:"inset(0% 0% 0% 0%)",ease:"none",scrollTrigger:{trigger:step,start:"top 85%",end:"top 25%",scrub:.2}});
+          gsap.fromTo(fills[i],{clipPath:"inset(100% 0% 0% 0%)"},{clipPath:"inset(-3px -3px -3px -3px)",ease:"none",scrollTrigger:{trigger:step,start:"top 85%",end:"top 25%",scrub:.2}});
           gsap.from($(".step-card",step),{y:32,opacity:0,duration:.45,ease:"power3.out",scrollTrigger:{trigger:step,start:"top 85%"}});
           if(i === 0) return;
           ScrollTrigger.create({trigger:step,start:"top 89px",end:"bottom top",
