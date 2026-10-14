@@ -221,12 +221,11 @@
     gsap.fromTo(".cta",{clipPath:"inset(12% 14% 12% 14% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 28px)",ease:"none",scrollTrigger:{trigger:".cta",start:"top 92%",end:"top 45%",scrub:true}});
     gsap.from($("#cta-title")._parts,{yPercent:110,stagger:.06,duration:.65,ease:"expo.out",scrollTrigger:{trigger:".cta",start:"top 70%"}});
 
-    /* ===== Storytelling : rejoué à chaque entrée dans le viewport ===== */
+    /* ===== Storytelling : les mots deviennent blancs au fil du scroll ===== */
     if(scrub){
-      var writing = gsap.timeline({paused:true}).fromTo(scrub._parts,{opacity:.28},{opacity:1,duration:.2,stagger:.025,ease:"power1.out"});
-      ScrollTrigger.create({trigger:scrub,start:"top 85%",end:"bottom 15%",
-        onEnter:function(){writing.restart();},onEnterBack:function(){writing.restart();},
-        onLeave:function(){writing.progress(1).pause();},onLeaveBack:function(){writing.pause(0);}});
+      gsap.fromTo(scrub._parts,{opacity:.28,color:"#fff"},
+        {opacity:1,color:"#fff",duration:.35,stagger:.1,ease:"none",
+          scrollTrigger:{trigger:scrub,start:"top 80%",end:"bottom 45%",scrub:.2}});
     }
 
     /* ===== Équipe ===== */
@@ -285,6 +284,10 @@
         section.style.removeProperty("--steps-height");
         section.style.removeProperty("--mobile-step-height");
         var height = Math.ceil(Math.max.apply(null, steps.map(function(step){return step.offsetHeight;})));
+        if(ctx.conditions.wide){
+          var stepGap = parseFloat(window.getComputedStyle(steps[0]).getPropertyValue("--step-gap")) || 26;
+          height += stepGap * (steps.length-1);
+        }
         section.style.setProperty(ctx.conditions.wide ? "--steps-height" : "--mobile-step-height",height+"px");
       }
       if(ctx.conditions.wide) section.classList.add("method-is-pinned");
@@ -292,7 +295,7 @@
       ScrollTrigger.addEventListener("refreshInit",measure);
       var fills = steps.map(function(step){return $(".num-f",step);});
       if(ctx.conditions.wide){
-        // Les cartes entrent dans un cadre masqué, puis recouvrent complètement la précédente.
+        // Les fonds restent visibles en escalier ; seul le contenu recouvert disparaît.
         steps.forEach(function(step,i){gsap.set(step,{autoAlpha:1,yPercent:i === 0 ? 0 : 100,zIndex:i+1});});
         gsap.set(fills,{clipPath:"inset(100% 0% 0% 0%)"});
         var activeStep = -1;
@@ -313,10 +316,12 @@
           .to({}, {duration:.25},.35);
         steps.slice(1).forEach(function(step,i){
           var at = .6+i;
+          var coveredContent = [$(".step-num",steps[i])].concat($$(".step-card > *",steps[i]));
           methodTl.to(step,{yPercent:0,duration:.65,ease:"power2.inOut"},at)
-            .to(fills[i+1],{clipPath:"inset(0% 0% 0% 0%)",duration:.5,ease:"none"},at)
-            .set(steps[i],{autoAlpha:0},at+.65)
-            .to({}, {duration:.35},at+.65);
+            .set(coveredContent,{autoAlpha:0},at+.65)
+            // Le chiffre se remplit une fois la nouvelle carte entièrement visible.
+            .fromTo(fills[i+1],{clipPath:"inset(100% 0% 0% 0%)"},
+              {clipPath:"inset(0% 0% 0% 0%)",duration:.35,ease:"none",immediateRender:false},at+.65);
         });
         gsap.from($(".step-card",steps[0]),{y:40,opacity:0,duration:.5,ease:"power3.out",scrollTrigger:{trigger:stage,start:"top 85%"}});
       } else {

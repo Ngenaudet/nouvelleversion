@@ -177,11 +177,13 @@
   .h2{font-size:clamp(28px,3.6vw,56px);color:var(--ink)}
   .method-intro{margin:0;color:var(--muted);font-size:15px;max-width:46ch}
   .steps{list-style:none;margin:0;padding:0 0 40px;display:grid;gap:40px}
-  /* Le même point d’ancrage et la même hauteur évitent les éléments qui dépassent. */
-  .step{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:28px;align-items:center;position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);background:var(--paper);padding-block:14px;border-radius:var(--r-lg)}
+  /* Les cartes épinglées se décalent en escalier, avec une base commune. */
+  .step{--step-index:0;--step-gap:26px;--step-offset:calc(var(--step-index) * var(--step-gap));display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:28px;align-items:center;position:sticky;top:calc(env(safe-area-inset-top,0px) + 88px);background:var(--paper);padding-block:14px;border-radius:var(--r-lg)}
+  .step:nth-child(2){--step-index:1}
+  .step:nth-child(3){--step-index:2}
   .step-card{box-shadow:0 -18px 40px -30px rgba(15,31,143,.45)}
   .method-is-pinned .steps{position:relative;display:block;padding:0;height:var(--steps-height);overflow:hidden;border-radius:var(--r-lg)}
-  .method-is-pinned .step{position:absolute;inset:0 0 auto;min-height:var(--steps-height);margin:0;align-items:center}
+  .method-is-pinned .step{position:absolute;inset:var(--step-offset) 0 auto;min-height:calc(var(--steps-height) - var(--step-offset));margin:0;align-items:center}
   .method-is-pinned .step-card{align-self:stretch}
   .method-is-pinned .step:not(:first-child){visibility:hidden}
   .method-is-pinned .method-stage{position:relative}
