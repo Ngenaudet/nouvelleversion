@@ -11,12 +11,12 @@ Site de l’agence **Nouvelle Version**, réalisé à partir de la maquette cré
 
 La page d’accueil est intégrée (`index.html`, styles dans `css/style.css`) :
 
-- Hero, offres (cartes en verre), méthode en cartes sticky, CTA, à propos, équipe, contact, FAQ, footer.
+- Hero, offres en cartes sur desktop et slider sur tablette/mobile, méthode centrée et épinglée sur desktop/tablette et cartes sticky sur mobile, CTA, à propos, équipe, contact, FAQ, footer.
 - SEO : balises meta, Open Graph, données structurées JSON-LD (ProfessionalService + FAQPage).
 - Animations GSAP + ScrollTrigger, désactivées si l’utilisateur demande moins d’animations.
 - Images optimisées en WebP dans `images/`, sources d’origine dans `assets/`.
 
-Le formulaire de contact envoie les demandes par e-mail via PHP (`contact.php`).
+Le formulaire de contact est intégré via une iframe Zite (`https://xqpzdcc8fe.zite.so`). Le traitement des demandes et le message de confirmation sont configurés dans Zite. Le backend PHP historique reste dans le dépôt mais n’est plus appelé par la page d’accueil.
 
 ## Sécurité et hébergement
 
@@ -29,7 +29,7 @@ Le site est prévu pour un hébergement Apache (`.htaccess`) :
 - compression Brotli/Gzip et cache navigateur ;
 - page `404.html`, `robots.txt`, `sitemap.xml`, `.well-known/security.txt`.
 
-Tout est auto-hébergé (polices dans `fonts/`, GSAP dans `js/vendor/`) : aucun appel à un service tiers, ce qui permet une CSP sans `unsafe-inline` et évite le transfert de l’IP des visiteurs à Google (RGPD).
+Les polices (Geist pour les textes, Boldonse pour les titres) et GSAP sont auto-hébergés dans `fonts/` et `js/vendor/`. L’iframe de contact charge Zite ; la CSP autorise uniquement son domaine dans `frame-src`.
 
 Après une modification de `css/style.css` ou `js/main.js`, incrémentez le paramètre `?v=` dans `index.html` pour forcer le rafraîchissement du cache.
 
