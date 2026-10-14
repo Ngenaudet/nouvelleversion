@@ -24,6 +24,32 @@
   $$("[data-split]").forEach(function(el){ el._parts = split(el, el.dataset.split); });
   var scrub = $("[data-scrub]"); if(scrub) scrub._parts = split(scrub,"words");
 
+  /* ---------- Storytelling : remplissage blanc piloté directement par le scroll ---------- */
+  if(scrub){
+    var storyMotion = window.matchMedia("(prefers-reduced-motion:reduce)"), storyFrame = null;
+    function paintStory(){
+      storyFrame = null;
+      scrub.classList.toggle("is-scroll-filled", !storyMotion.matches);
+      if(storyMotion.matches) return;
+      var bounds = scrub.getBoundingClientRect(), viewport = window.innerHeight;
+      var progress = Math.max(0, Math.min(1, (viewport*.8-bounds.top)/(bounds.height+viewport*.35)));
+      scrub._parts.forEach(function(word,i){
+        var fill = Math.max(0, Math.min(1, progress*scrub._parts.length-i));
+        word.style.setProperty("--word-fill", (fill*100).toFixed(2)+"%");
+      });
+    }
+    function updateStory(){
+      if(storyFrame === null) storyFrame = window.requestAnimationFrame(paintStory);
+    }
+    window.addEventListener("scroll",updateStory,{passive:true});
+    window.addEventListener("resize",updateStory);
+    window.addEventListener("load",updateStory);
+    storyMotion.addEventListener("change",updateStory);
+    new ResizeObserver(updateStory).observe(scrub);
+    document.fonts.ready.then(updateStory);
+    paintStory();
+  }
+
   /* ---------- FAQ (fonctionne toujours) ---------- */
   $$(".faq-q").forEach(function(btn){
     btn.addEventListener("click", function(){
@@ -220,13 +246,6 @@
     /* ===== CTA : ouverture en clip-path ===== */
     gsap.fromTo(".cta",{clipPath:"inset(12% 14% 12% 14% round 60px)"},{clipPath:"inset(0% 0% 0% 0% round 28px)",ease:"none",scrollTrigger:{trigger:".cta",start:"top 92%",end:"top 45%",scrub:true}});
     gsap.from($("#cta-title")._parts,{yPercent:110,stagger:.06,duration:.65,ease:"expo.out",scrollTrigger:{trigger:".cta",start:"top 70%"}});
-
-    /* ===== Storytelling : les mots deviennent blancs au fil du scroll ===== */
-    if(scrub){
-      gsap.fromTo(scrub._parts,{opacity:.28,color:"#fff"},
-        {opacity:1,color:"#fff",duration:.35,stagger:.1,ease:"none",
-          scrollTrigger:{trigger:scrub,start:"top 80%",end:"bottom 45%",scrub:.2}});
-    }
 
     /* ===== Équipe ===== */
     $$(".member").forEach(function(m,i){

@@ -218,6 +218,7 @@
   .about{position:relative;isolation:isolate;color:#fff;text-align:center;padding-block:clamp(96px,10vw,140px) clamp(140px,14vw,220px);margin-bottom:40px}
   .about::before{content:"";position:absolute;z-index:-1;inset:-32px -12vw -32px;background:linear-gradient(180deg,var(--blue),#4A68FF);filter:blur(28px);-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 65%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 65%,transparent);pointer-events:none}
   .about-quote{font-family:var(--f-body);font-weight:550;font-size:clamp(24px,3.4vw,42px);line-height:1.18;width:70%;max-width:none;margin:0 auto;text-wrap:balance;letter-spacing:-.01em}
+  .about-quote.is-scroll-filled .wi{color:transparent;opacity:1;background-image:linear-gradient(90deg,#fff var(--word-fill,0%),rgba(255,255,255,.28) var(--word-fill,0%));-webkit-background-clip:text;background-clip:text}
 
   /* ---------- Équipe ---------- */
   .team{display:grid;gap:clamp(40px,6vw,72px);margin-top:0}
