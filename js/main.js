@@ -254,7 +254,6 @@
         .from($(".member-q p",m),{x:-30,opacity:0,duration:.455,ease:"power3.out"},"-=.4")
         .from($(".media-panel",m),{xPercent:-40,opacity:0,duration:.585,ease:"expo.out"},"-=.5")
         .fromTo($(".portrait",m),{clipPath:"inset(100% 0% 0% 0% round 22px)"},{clipPath:"inset(0% 0% 0% 0% round 22px)",duration:.78,ease:"expo.inOut"},"-=.8")
-        .from($(".portrait-in",m),{scale:1.35,duration:.91,ease:"expo.out"},"-=.9")
         .fromTo($(".member-media .draw",m),{strokeDasharray:200,strokeDashoffset:200},{strokeDashoffset:0,duration:.585,ease:"power2.inOut"},"-=.9")
         .from($$(".soc",m),{scale:0,stagger:.05,duration:.325,ease:"back.out(3)"},"-=.7")
         .from($("h3",m)._parts,{yPercent:120,opacity:0,stagger:.03,duration:.52,ease:"expo.out"},"-=1")

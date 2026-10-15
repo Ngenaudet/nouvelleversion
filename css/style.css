@@ -232,9 +232,10 @@
   .soc{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;display:grid;place-items:center;transition:background .3s,color .3s}
   .soc:hover{background:#fff;color:var(--blue)}
   .soc svg{width:15px;height:15px}
-  .portrait{position:relative;margin-left:auto;width:78%;aspect-ratio:4/5;max-width:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,31,143,.6)}
+  .portrait{position:relative;margin-left:auto;width:78%;max-width:100%;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px -30px rgba(15,31,143,.6)}
   .portrait{background:var(--blue-soft)}
-  .portrait-in{position:absolute;left:0;top:0;width:100%;height:100%;max-width:none;object-fit:cover}
+  /* Conserver le cadrage complet des photos, sans recadrage par object-fit. */
+  .portrait-in{display:block;width:100%;height:auto;max-width:100%}
   .member-media .squiggle{position:absolute;left:20%;top:72px;margin:0;z-index:3;width:98px;height:24px;pointer-events:none}
   .portrait{z-index:1}
   .member-body{min-width:0;width:100%;max-width:56ch}
@@ -407,7 +408,8 @@
 
   /* Formulaire de contact intégré */
   .contact-embed{--form-scale:.9;--form-height:1042px;position:relative;width:100%;max-width:920px;height:calc(var(--form-height) * var(--form-scale));margin-inline:auto;overflow:clip;border-radius:var(--r-lg);background:#fff;box-shadow:0 40px 80px -50px rgba(15,31,143,.55)}
-  .contact-iframe{display:block;width:calc(100% / var(--form-scale));max-width:none;height:var(--form-height);border:0;background:#fff;transform:scale(var(--form-scale));transform-origin:top left}
+  .contact-iframe{display:block;width:calc(100% / var(--form-scale));max-width:none;height:var(--form-height);border:0;background:#fff;transform:scale(var(--form-scale));transform-origin:top left;}
+  @media(max-width:600px){.contact-iframe{--form-height:1150px;}}
   @media(max-width:600px){.contact-embed{--form-height:1800px}}
 
   @media (max-width:600px){
@@ -448,7 +450,7 @@
     .member-q{gap:10px;justify-content:center;align-items:center}
     .member-q p{font-size:16px}
     .member-media{width:230px;max-width:100%;padding:20px 0 0 28px;margin:0 auto}
-    .portrait{width:78%;aspect-ratio:4/4.5}
+    .portrait{width:78%}
     .media-panel{top:42px;height:calc(100% - 28px);padding:12px;gap:8px}
     .member-media .squiggle{top:42px;left:20%;width:86px}
     .member-body{max-width:none}
