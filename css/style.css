@@ -477,3 +477,16 @@
     .btn,.mini-bar,.sub{transition:none}
     .cursor{display:none}
   }
+
+/* Pages d’information : lecture autonome, sans animations. */
+.legal-header{background:var(--blue);padding:24px 0}
+.legal-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.legal-header img{height:auto;max-width:100%}
+.legal-content{max-width:860px;margin:0 auto;padding:64px var(--gutter) 80px;overflow-wrap:anywhere}
+.legal-content h1{font-family:var(--f-display);font-size:clamp(25px,4vw,42px);line-height:1.5;margin:0 0 40px}
+.legal-content h2{font-size:22px;line-height:1.4;margin:36px 0 12px}
+.legal-content p{color:var(--muted);margin:12px 0}
+.legal-content a{text-decoration:underline;text-underline-offset:3px;color:var(--blue)}
+.legal-footer{background:var(--blue-soft);padding:28px 0}
+.legal-footer nav{display:flex;flex-wrap:wrap;gap:16px 28px}
+.legal-footer a:hover{text-decoration:underline}

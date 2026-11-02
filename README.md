@@ -1,87 +1,29 @@
 # Nouvelle Version
 
-Site de l’agence **Nouvelle Version**, réalisé à partir de la maquette créée par **David**.
+Site statique de l’agence Nouvelle Version : HTML, CSS, JavaScript et animations GSAP. Les polices et bibliothèques sont auto-hébergées.
 
-## Technologies
+## Pages
 
-- HTML et CSS pour un site statique.
-- JavaScript et GSAP pour les animations.
+- `index.html` : accueil et formulaire Zite intégré (`https://xqpzdcc8fe.zite.so`).
+- `mentions-legales.html`, `politique-de-confidentialite.html`, `conditions-generales.html` : pages accessibles depuis le pied de page, sans JavaScript.
+- `404.html` : page d’erreur statique.
 
-## État du projet
+Les pages d’information sont en `noindex` tant que leurs contenus ne sont pas finalisés. Compléter l’identité juridique de l’éditeur, l’adresse, l’immatriculation, le directeur de publication, les coordonnées de l’hébergeur, les conditions contractuelles et les paramètres réels de traitement des données dans Zite avant de les considérer comme définitives.
 
-La page d’accueil est intégrée (`index.html`, styles dans `css/style.css`) :
+## Contact
 
-- Hero, offres en cartes sur desktop, slider sur tablette et pile de cartes sur mobile, méthode centrée et épinglée sur desktop/tablette et cartes sticky sur mobile, CTA, à propos, équipe, contact, FAQ, footer.
-- SEO : balises meta, Open Graph, données structurées JSON-LD (ProfessionalService + FAQPage).
-- Animations GSAP + ScrollTrigger, désactivées si l’utilisateur demande moins d’animations.
-- Images optimisées en WebP dans `images/`, sources d’origine dans `assets/`.
+Le traitement, les notifications et la confirmation du formulaire sont configurés dans Zite. Aucun backend PHP ni configuration SMTP n’est nécessaire.
 
-Le formulaire de contact est intégré via une iframe Zite (`https://xqpzdcc8fe.zite.so`). Le traitement des demandes et le message de confirmation sont configurés dans Zite. Le backend PHP historique reste dans le dépôt mais n’est plus appelé par la page d’accueil.
+## Hébergement Apache
 
-## Sécurité et hébergement
+Déployer les fichiers statiques et le `.htaccess`, puis activer le certificat HTTPS. Le domaine utilisé dans les métadonnées est `nouvelleversion.fr`.
 
-Le site est prévu pour un hébergement Apache (`.htaccess`) :
+Le `.htaccess` configure HTTPS, les en-têtes de sécurité, la compression, le cache et `ErrorDocument 404 /404.html`. La CSP autorise le domaine du formulaire Zite.
 
-- redirection HTTPS et domaine canonique `www.nouvelle-version.fr` (à adapter) ;
-- en-têtes de sécurité : HSTS, Content-Security-Policy stricte, X-Frame-Options, Referrer-Policy, Permissions-Policy, COOP/CORP ;
-- blocage des fichiers sensibles (`.git`, `.env`, `.md`, archives…), du dossier `assets/` et du listing des dossiers ;
-- méthodes HTTP limitées à GET, HEAD et POST, filtrage des requêtes malveillantes courantes ;
-- compression Brotli/Gzip et cache navigateur ;
-- page `404.html`, `robots.txt`, `sitemap.xml`, `.well-known/security.txt`.
+Pour une installation dans un sous-dossier, adapter `ErrorDocument` dans `.htaccess` et le `<base href="/">` de `404.html` au chemin d’installation (par exemple `/site/404.html` et `/site/`).
 
-Les polices (Geist pour les textes, Boldonse pour les titres) et GSAP sont auto-hébergés dans `fonts/` et `js/vendor/`. L’iframe de contact charge Zite ; la CSP autorise uniquement son domaine dans `frame-src`.
+Lors d’une mise à jour du site existant, supprimer également du serveur les anciens fichiers `contact.php`, `404.php` et le dossier `app/` : un simple transfert FTP ne supprime pas les fichiers obsolètes.
 
-Après une modification de `css/style.css` ou `js/main.js`, incrémentez le paramètre `?v=` dans `index.html` pour forcer le rafraîchissement du cache.
+Après modification des styles ou scripts, incrémenter leur paramètre `?v=` dans les pages concernées.
 
-## Formulaire de contact (PHP)
-
-Prérequis : PHP 8.1 ou plus (sélectionnable dans cPanel o2switch › Sélectionner une version de PHP).
-
-| Fichier | Rôle |
-| --- | --- |
-| `contact.php` | Point d’entrée public : délivre le jeton anti-robot (GET) et traite l’envoi (POST). |
-| `app/ContactHandler.php` | Validation, sécurité, mise en forme et envoi du message. |
-| `app/SmtpMailer.php` | Envoi SMTP authentifié (optionnel). |
-| `app/config.php` | Réglages (destinataire, expéditeur, limites). Versionné, sans secret. |
-| `app/config.local.php` | Surcharges privées (mot de passe SMTP). **Non versionné**, à créer sur le serveur depuis `config.local.sample.php`. |
-| `app/storage/` | Créé automatiquement : clé secrète, limitation de débit, journaux. Non versionné, interdit au public. |
-| `404.php` | Page 404 avec le bon statut HTTP, quel que soit le dossier d’installation. |
-
-Protections : POST uniquement, contrôle de l’origine, jeton signé à usage unique avec délai minimal de 3 s, champ piège invisible, 5 envois par heure et par visiteur (IP anonymisée) et 150 par jour au total, validation stricte de chaque champ, protection contre l’injection d’en-têtes, limite de taille, message HTML échappé.
-
-### Mise en ligne sur o2switch
-
-#### Erreur 403 : « Server unable to read htaccess file »
-
-Cette erreur survient avant la lecture des règles du `.htaccess` : Apache
-ne peut pas lire ce fichier ou traverser un dossier du chemin du site.
-Modifier `index.html` ou supprimer les protections du `.htaccess` ne la corrige pas.
-
-Dans le gestionnaire de fichiers cPanel, activez l'affichage des fichiers cachés,
-puis réglez les permissions du dossier racine du site sur **755**, celles de
-`.htaccess` et `app/.htaccess` sur **644**. Vérifiez aussi que les dossiers parents
-sont traversables par Apache (sur un hébergement mutualisé, demandez à o2switch
-de vérifier les permissions et le propriétaire du compte si nécessaire).
-
-Avec un terminal SSH, depuis le dossier qui contient `index.html` :
-
-```sh
-chmod 755 . app .well-known css fonts images js js/vendor
-chmod 644 .htaccess app/.htaccess index.html 404.html 404.php contact.php
-```
-
-Ne passez pas le site en `777` et n'appliquez pas de changement récursif aux
-secrets (`app/config.local.php`), au stockage privé ou au dossier `.git`.
-Rechargez ensuite le site. Si l'erreur reste présente, consultez le journal
-Apache dans cPanel et faites vérifier par l'hébergeur le chemin indiqué,
-son propriétaire et ses ACL. Le second message concernant `ErrorDocument`
-peut être une conséquence du même défaut d'accès.
-
-1. Envoyez tout le dépôt dans le dossier voulu (FTP ou Git Version Control de cPanel). Le site fonctionne à la racine d’un domaine comme dans un sous-dossier.
-2. Dans cPanel › Comptes de messagerie, créez l’adresse d’expédition (par ex. `no-reply@votre-domaine.fr`) et reportez-la dans `'from'` de `app/config.php`. Elle doit appartenir au domaine du site, sinon les messages partent en spam.
-3. Vérifiez `'to'` (adresse qui reçoit les demandes).
-4. Activez le certificat SSL (AutoSSL / Let’s Encrypt) : le `.htaccess` force le HTTPS.
-5. Testez le formulaire. Les erreurs d’envoi sont consignées dans `app/storage/logs/contact.log`.
-
-Par défaut l’envoi utilise `mail()`, qui fonctionne directement sur o2switch. Pour une délivrabilité maximale, passez en SMTP : copiez `app/config.local.sample.php` en `app/config.local.php` et renseignez l’hôte, l’adresse et le mot de passe de la boîte d’expédition.
-
+En cas d’erreur Apache « Server unable to read htaccess file », vérifier les droits des dossiers (755), des fichiers (644) et les permissions des dossiers parents avec l’hébergeur.

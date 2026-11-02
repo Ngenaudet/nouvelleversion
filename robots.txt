@@ -3,6 +3,5 @@ Allow: /
 Disallow: /*assets/
 Disallow: /*app/
 Disallow: /*404
-Disallow: /*contact.php
 
-Sitemap: https://www.nouvelle-version.fr/sitemap.xml
+Sitemap: https://nouvelleversion.fr/sitemap.xml

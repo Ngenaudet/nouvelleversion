@@ -16,8 +16,9 @@ DirectoryIndex index.html
 AddDefaultCharset utf-8
 FileETag MTime Size
 
-# Page 404 : servie par la règle de réécriture plus bas (404.php),
-# ce qui fonctionne quel que soit le dossier d'installation.
+# Page 404 statique, avec conservation du statut HTTP 404.
+# Pour une installation en sous-dossier, adapter ce chemin et le <base> de 404.html.
+ErrorDocument 404 /404.html
 
 # ---------------------------------------------------------------------
 # 2. Types MIME
@@ -70,13 +71,9 @@ FileETag MTime Size
   RewriteCond %{REQUEST_URI} !^/\.well-known/
   RewriteRule (^|/)\. - [F,L]
 
-  # Dossiers privés : code PHP / données (app) et sources d'origine (assets)
+  # Dossiers privés : ancien backend et sources d’origine
   RewriteRule ^(app|assets)(/|$) - [F,L]
 
-  # URL inexistante -> page 404 maison (chemin relatif à ce dossier)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ 404.php [L]
 </IfModule>
 
 # ---------------------------------------------------------------------
@@ -91,15 +88,10 @@ FileETag MTime Size
     Deny from all
   </IfModule>
 </FilesMatch>
-# PHP : seuls les deux points d'entrée publics peuvent être exécutés
+# Les scripts serveur ne sont pas utilisés par ce site statique.
 <FilesMatch "\.(php|phtml|phar|php\d)$">
   <IfModule mod_authz_core.c>
     Require all denied
-  </IfModule>
-</FilesMatch>
-<FilesMatch "^(contact|404)\.php$">
-  <IfModule mod_authz_core.c>
-    Require all granted
   </IfModule>
 </FilesMatch>
 
@@ -142,8 +134,8 @@ FileETag MTime Size
   </FilesMatch>
 
   # ---- Cache navigateur ----
-  # HTML et PHP : toujours revalidés
-  <FilesMatch "\.(html|php)$">
+  # HTML : toujours revalidé
+  <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
   # CSS / JS : versionnés par ?v=… dans index.html -> 1 an
