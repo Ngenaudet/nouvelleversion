@@ -215,7 +215,7 @@
 
   /* ---------- À propos ---------- */
   .about{position:relative;isolation:isolate;color:#fff;text-align:center;padding-block:clamp(96px,10vw,140px) clamp(140px,14vw,220px);margin-bottom:40px}
-  .about::before{content:"";position:absolute;z-index:-1;inset:-32px 0;background:linear-gradient(180deg,var(--blue),#4A68FF);filter:blur(28px);-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 65%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 65%,transparent);pointer-events:none}
+  .about::before{content:"";position:absolute;z-index:-1;inset:-32px 0;background:radial-gradient(ellipse 76% 50% at 50% 50%, #2557F5 0%, #2D62F5 48%, rgb(56 111 246 / 88%) 66%, rgb(93 147 250 / 42%) 83%, rgb(130 172 252 / 0%) 100%);pointer-events:none}
   .about-quote{font-family:var(--f-body);font-weight:550;font-size:clamp(24px,3.4vw,42px);line-height:1.18;width:70%;max-width:none;margin:0 auto;text-wrap:balance;letter-spacing:-.01em}
   /* Garder les mots animés dans la largeur disponible, même sur petit écran. */
   .about-quote .w,.about-quote .wi{max-width:100%;overflow-wrap:anywhere}
